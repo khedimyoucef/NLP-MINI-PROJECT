@@ -1,36 +1,248 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Children Story Generator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #f3efe6;
+        --ink: #1b1b1f;
+        --muted: #585861;
+        --accent: #1f5b4d;
+        --accent-2: #e98d5c;
+        --card: #ffffff;
+        --border: #d8d2c7;
+        --shadow: 0 20px 40px rgba(21, 21, 24, 0.12);
+        --radius: 18px;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Space Grotesk", system-ui, -apple-system, sans-serif;
+        color: var(--ink);
+        background: radial-gradient(circle at top left, #fff7e9 0%, var(--bg) 40%, #efe7d8 100%);
+        min-height: 100vh;
+      }
+
+      .page {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 40px 24px 64px;
+        display: grid;
+        gap: 28px;
+      }
+
+      .hero {
+        display: grid;
+        gap: 16px;
+        align-items: center;
+      }
+
+      .hero h1 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(2.2rem, 4vw, 3.6rem);
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+
+      .hero p {
+        margin: 0;
+        color: var(--muted);
+        font-size: 1.05rem;
+        max-width: 680px;
+      }
+
+      .layout {
+        display: grid;
+        gap: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        padding: 24px;
+        box-shadow: var(--shadow);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: #f7efe3;
+        color: var(--accent);
+        font-weight: 600;
+        font-size: 0.85rem;
+      }
+
+      form {
+        display: grid;
+        gap: 16px;
+      }
+
+      label {
+        display: grid;
+        gap: 8px;
+        font-weight: 600;
+      }
+
+      input, select {
+        width: 100%;
+        padding: 12px 14px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        font-size: 1rem;
+        font-family: inherit;
+        background: #fbfaf8;
+      }
+
+      .controls {
+        display: grid;
+        gap: 12px;
+        grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      }
+
+      button {
+        padding: 12px 18px;
+        border: none;
+        border-radius: 999px;
+        background: var(--accent);
+        color: #fff;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+        box-shadow: 0 12px 24px rgba(31, 91, 77, 0.25);
+      }
+
+      button:hover {
+        transform: translateY(-1px);
+        background: #1a4e41;
+      }
+
+      button:disabled {
+        opacity: 0.7;
+        cursor: not-allowed;
+      }
+
+      .output {
+        min-height: 220px;
+        white-space: pre-wrap;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #222225;
+      }
+
+      .spark {
+        height: 6px;
+        width: 80px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--accent), var(--accent-2));
+      }
+
+      .footer {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+
+      .card, .hero {
+        animation: fadeUp 0.6s ease both;
+      }
+
+      .hero { animation-delay: 0.05s; }
+      .card:first-of-type { animation-delay: 0.15s; }
+      .card:last-of-type { animation-delay: 0.25s; }
+    </style>
   </head>
   <body>
-    <h1>Children Story Generator</h1>
-    <p>Open this page from the API server at http://localhost:8000/</p>
-    <form id="gen">
-      <label>Theme: <input id="theme" /></label><br/>
-      <label>Age group:
-        <select id="age">
-          <option>Age3-4</option>
-          <option>Age5-6</option>
-          <option>Age7-8</option>
-          <option>Age9-10</option>
-          <option>Age11-12</option>
-        </select>
-      </label>
-      <label>Max tokens: <input id="max_tokens" type="number" value="300" min="50" max="800" /></label>
-      <button type="submit">Generate</button>
-    </form>
-    <pre id="out"></pre>
+    <div class="page">
+      <div class="hero">
+        <span class="badge">CPU-friendly demo</span>
+        <h1>Children Story Generator</h1>
+        <div class="spark"></div>
+        <p>Give a theme and pick an age level. The model adapts vocabulary and sentence length to the selected age group.</p>
+      </div>
+
+      <div class="layout">
+        <div class="card">
+          <form id="gen">
+            <label>
+              Theme
+              <input id="theme" placeholder="a brave mouse who loves music" required />
+            </label>
+            <div class="controls">
+              <label>
+                Age group
+                <select id="age">
+                  <option>Age3-4</option>
+                  <option>Age5-6</option>
+                  <option>Age7-8</option>
+                  <option>Age9-10</option>
+                  <option>Age11-12</option>
+                </select>
+              </label>
+              <label>
+                Max tokens
+                <input id="max_tokens" type="number" value="300" min="50" max="800" />
+              </label>
+            </div>
+            <button id="submitBtn" type="submit">Generate story</button>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>Story</h3>
+          <div id="out" class="output">Your story will appear here.</div>
+        </div>
+      </div>
+
+      <div class="footer">Open this UI from the API server at http://localhost:8000/</div>
+    </div>
+
     <script>
-      document.getElementById('gen').addEventListener('submit', async e =>{
+      const form = document.getElementById('gen');
+      const out = document.getElementById('out');
+      const btn = document.getElementById('submitBtn');
+
+      form.addEventListener('submit', async e =>{
         e.preventDefault();
-        const theme = document.getElementById('theme').value;
+        const theme = document.getElementById('theme').value.trim();
         const age = document.getElementById('age').value;
         const maxTokens = parseInt(document.getElementById('max_tokens').value || '300', 10);
-        const res = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({theme, age_group: age, max_new_tokens: maxTokens})});
-        const j = await res.json();
-        document.getElementById('out').textContent = j.text;
+        if (!theme) return;
+        btn.disabled = true;
+        btn.textContent = 'Generating...';
+        out.textContent = 'Generating story...';
+        try {
+          const res = await fetch('/generate', {
+            method:'POST',
+            headers:{'Content-Type':'application/json'},
+            body: JSON.stringify({theme, age_group: age, max_new_tokens: maxTokens})
+          });
+          const j = await res.json();
+          out.textContent = j.text || 'No output returned.';
+        } catch (err) {
+          out.textContent = 'Failed to generate. Is the API running?';
+        } finally {
+          btn.disabled = false;
+          btn.textContent = 'Generate story';
+        }
       });
     </script>
   </body>

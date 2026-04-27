@@ -16,3 +16,6 @@ See `src/` and `api/` for starter scripts. Use `requirements.txt` to install dep
 Runtime estimate:
 - Run `python -m src.benchmark_runtime` to estimate 1xT4 vs 2xT4 training time.
 - Pass `--single-gpu-tokens-per-sec` if you already measured throughput on one GPU.
+
+Kaggle notebook:
+- Upload [notebooks/kaggle_runtime_benchmark.ipynb](notebooks/kaggle_runtime_benchmark.ipynb) to Kaggle and run the cells top to bottom.

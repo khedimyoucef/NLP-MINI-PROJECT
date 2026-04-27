@@ -19,3 +19,25 @@ Runtime estimate:
 
 Kaggle notebook:
 - Upload [notebooks/kaggle_runtime_benchmark.ipynb](notebooks/kaggle_runtime_benchmark.ipynb) to Kaggle and run the cells top to bottom.
+
+Local CPU run:
+- Install dependencies in your micromamba env (CPU-only torch recommended):
+
+```bash
+micromamba run -n NLP python -m pip install torch --index-url https://download.pytorch.org/whl/cpu
+micromamba run -n NLP python -m pip install -r requirements.txt
+```
+
+- Download the fine-tuned model once:
+
+```bash
+PYTHON_BIN=/home/youcef/micromamba/envs/NLP/bin/python bash scripts/download_model.sh
+```
+
+- Start the API + UI:
+
+```bash
+PYTHON_BIN=/home/youcef/micromamba/envs/NLP/bin/python bash scripts/run_api.sh
+```
+
+Then open http://localhost:8000/ to use the web UI.

@@ -3,6 +3,7 @@ transformers>=4.30
 datasets
 accelerate
 sentencepiece
+huggingface_hub
 fastapi
 uvicorn
 textstat

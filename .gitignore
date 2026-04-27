@@ -6,3 +6,4 @@ data/processed/
 *.ckpt
 runs/
 .env
+models/

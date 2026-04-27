@@ -1,0 +1,10 @@
+torch>=1.13
+transformers>=4.30
+datasets
+accelerate
+sentencepiece
+fastapi
+uvicorn
+textstat
+python-multipart
+pydantic

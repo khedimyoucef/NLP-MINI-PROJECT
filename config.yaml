@@ -1,0 +1,16 @@
+dataset:
+  hf_name: "ajibawa-2023/Children-Stories-Collection"
+  sample_size: 50000
+model:
+  name: "gpt2"
+  seq_length: 256
+training:
+  epochs: 2
+  lr: 2e-5
+  batch_size: 8
+prefixes:
+  - Age3-4
+  - Age5-6
+  - Age7-8
+  - Age9-10
+  - Age11-12

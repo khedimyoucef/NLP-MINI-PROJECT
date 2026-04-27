@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Children Story Generator</title>
+  </head>
+  <body>
+    <h1>Children Story Generator</h1>
+    <form id="gen">
+      <label>Theme: <input id="theme" /></label><br/>
+      <label>Age group:
+        <select id="age">
+          <option>Age3-4</option>
+          <option>Age5-6</option>
+          <option>Age7-8</option>
+          <option>Age9-10</option>
+          <option>Age11-12</option>
+        </select>
+      </label>
+      <button type="submit">Generate</button>
+    </form>
+    <pre id="out"></pre>
+    <script>
+      document.getElementById('gen').addEventListener('submit', async e =>{
+        e.preventDefault();
+        const theme = document.getElementById('theme').value;
+        const age = document.getElementById('age').value;
+        const res = await fetch('/generate', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({theme, age_group: age})});
+        const j = await res.json();
+        document.getElementById('out').textContent = j.text;
+      });
+    </script>
+  </body>
+</html>

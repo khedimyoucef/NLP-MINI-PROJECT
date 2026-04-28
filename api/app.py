@@ -5,7 +5,7 @@ from typing import Optional
 
 import torch
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from src.model.model import load_model
@@ -67,20 +67,32 @@ async def generate(req: GenerateRequest):
         raise HTTPException(status_code=400, detail=f"Unknown model: {model_name}")
 
     await activate_model(model_name)
+    return StreamingResponse(generate_stream(req), media_type="text/plain")
+
+
+async def generate_stream(req: GenerateRequest):
     prefix = f"Level: {req.age_group} — "
     prompt = prefix + req.theme
     inputs = tokenizer(prompt, return_tensors="pt").to(device)
     max_new_tokens = req.max_new_tokens or default_max_new_tokens
-    with torch.no_grad():
-        out = model.generate(
-            **inputs,
-            max_new_tokens=max_new_tokens,
-            do_sample=True,
-            temperature=0.8,
-            eos_token_id=tokenizer.eos_token_id,
-        )
-    text = tokenizer.decode(out[0], skip_special_tokens=True)
-    return {"text": text}
+
+    generated = inputs['input_ids']
+    prompt_length = generated.shape[1]
+
+    for _ in range(max_new_tokens):
+        with torch.no_grad():
+            outputs = model(generated)
+            next_token_logits = outputs.logits[:, -1, :]
+            next_token = torch.multinomial(torch.softmax(next_token_logits / 0.8, dim=-1), 1)
+            generated = torch.cat([generated, next_token], dim=1)
+
+        text = tokenizer.decode(generated[0][prompt_length:], skip_special_tokens=True)
+        yield text
+
+        if next_token.item() == tokenizer.eos_token_id:
+            break
+
+        await asyncio.sleep(0)  # Yield control
 
 
 def discover_models():

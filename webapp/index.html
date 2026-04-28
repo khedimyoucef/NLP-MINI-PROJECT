@@ -261,8 +261,17 @@
             headers:{'Content-Type':'application/json'},
             body: JSON.stringify({theme, age_group: age, max_new_tokens: maxTokens, model_name: modelName})
           });
-          const j = await res.json();
-          out.textContent = j.text || 'No output returned.';
+          if (!res.ok) throw new Error('Generation failed');
+          const reader = res.body.getReader();
+          const decoder = new TextDecoder();
+          let result = '';
+          out.textContent = '';
+          while (true) {
+            const {done, value} = await reader.read();
+            if (done) break;
+            result += decoder.decode(value, {stream: true});
+            out.textContent = result;
+          }
         } catch (err) {
           out.textContent = 'Failed to generate. Is the API running?';
         } finally {

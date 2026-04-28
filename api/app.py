@@ -1,6 +1,7 @@
 import asyncio
 import os
 from pathlib import Path
+from threading import Thread
 from typing import Optional
 
 import torch
@@ -9,6 +10,7 @@ from fastapi.responses import FileResponse, StreamingResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from src.model.model import load_model
+from transformers import TextIteratorStreamer
 
 app = FastAPI()
 
@@ -16,6 +18,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 WEB_DIR = BASE_DIR / "webapp"
 MODEL_ROOT = BASE_DIR / "models"
 DEFAULT_MODEL_NAME = "story-gpt2"
+AGE_PREFIXES = {
+    "Age3-4": "Level: Age3-4 — Simple words.",
+    "Age5-6": "Level: Age5-6 — Short sentences.",
+    "Age7-8": "Level: Age7-8 — Moderate vocabulary.",
+    "Age9-10": "Level: Age9-10 — Longer sentences.",
+    "Age11-12": "Level: Age11-12 — Richer vocabulary.",
+}
 
 if WEB_DIR.exists():
     app.mount("/webapp", StaticFiles(directory=WEB_DIR), name="webapp")
@@ -67,40 +76,103 @@ async def generate(req: GenerateRequest):
         raise HTTPException(status_code=400, detail=f"Unknown model: {model_name}")
 
     await activate_model(model_name)
-    return StreamingResponse(generate_stream(req), media_type="text/plain")
+    return StreamingResponse(generate_stream(req, model_name), media_type="text/plain")
 
 
-async def generate_stream(req: GenerateRequest):
-    prefix = f"Level: {req.age_group} — "
-    prompt = prefix + req.theme
+def build_prompt(theme: str, age_group: str, model_name: str) -> str:
+    prefix = AGE_PREFIXES.get(age_group, f"Level: {age_group}")
+    clean_theme = " ".join(theme.split())
+    if model_name.startswith("gpt2"):
+        return (
+            f"{prefix}\n"
+            f"Write a clear children's story for {age_group} readers about {clean_theme}. "
+            "Use complete sentences with a beginning, middle, and ending.\n"
+            "Story:\n"
+        )
+    return f"{prefix} {clean_theme}"
+
+
+def resolve_max_new_tokens(requested: Optional[int]) -> int:
+    if requested is None:
+        return default_max_new_tokens
+    return max(1, min(int(requested), 1024))
+
+
+def generation_kwargs_for(model_name: str, max_new_tokens: int) -> dict:
+    if model_name.startswith("gpt2"):
+        return {
+            "max_new_tokens": max_new_tokens,
+            "do_sample": True,
+            "temperature": 0.8,
+            "top_p": 0.92,
+            "top_k": 50,
+            "repetition_penalty": 1.2,
+            "no_repeat_ngram_size": 3,
+            "renormalize_logits": True,
+            "pad_token_id": tokenizer.eos_token_id,
+            "eos_token_id": tokenizer.eos_token_id,
+            "use_cache": True,
+        }
+    return {
+        "max_new_tokens": max_new_tokens,
+        "do_sample": True,
+        "temperature": 0.85,
+        "top_p": 0.95,
+        "top_k": 50,
+        "repetition_penalty": 1.1,
+        "no_repeat_ngram_size": 3,
+        "renormalize_logits": True,
+        "pad_token_id": tokenizer.eos_token_id,
+        "eos_token_id": tokenizer.eos_token_id,
+        "use_cache": True,
+    }
+
+
+def generate_stream(req: GenerateRequest, model_name: str):
+    prompt = build_prompt(req.theme, req.age_group, model_name)
     inputs = tokenizer(prompt, return_tensors="pt").to(device)
-    max_new_tokens = req.max_new_tokens or default_max_new_tokens
+    max_new_tokens = resolve_max_new_tokens(req.max_new_tokens)
+    streamer = TextIteratorStreamer(
+        tokenizer,
+        skip_prompt=True,
+        skip_special_tokens=True,
+        clean_up_tokenization_spaces=True,
+    )
+    generation_kwargs = {
+        **inputs,
+        **generation_kwargs_for(model_name, max_new_tokens),
+        "streamer": streamer,
+    }
 
-    generated = inputs['input_ids']
-    prompt_length = generated.shape[1]
+    generation_error = None
 
-    for _ in range(max_new_tokens):
-        with torch.no_grad():
-            outputs = model(generated)
-            next_token_logits = outputs.logits[:, -1, :]
-            next_token = torch.multinomial(torch.softmax(next_token_logits / 0.8, dim=-1), 1)
-            generated = torch.cat([generated, next_token], dim=1)
+    def run_generation():
+        nonlocal generation_error
+        try:
+            with torch.no_grad():
+                model.generate(**generation_kwargs)
+        except Exception as exc:  # pragma: no cover - surfaced to the stream caller
+            generation_error = exc
+            streamer.end()
 
-        text = tokenizer.decode(generated[0][prompt_length:], skip_special_tokens=True)
-        yield text
+    worker = Thread(target=run_generation, daemon=True)
+    worker.start()
 
-        if next_token.item() == tokenizer.eos_token_id:
-            break
+    for chunk in streamer:
+        if chunk:
+            yield chunk
 
-        await asyncio.sleep(0)  # Yield control
+    worker.join(timeout=1)
+    if generation_error is not None:
+        raise generation_error
 
 
 def discover_models():
     if not MODEL_ROOT.exists():
         return []
-    return sorted([
-        p.name for p in MODEL_ROOT.iterdir() if p.is_dir()
-    ])
+    names = [p.name for p in MODEL_ROOT.iterdir() if p.is_dir()]
+    preferred = current_model_name or DEFAULT_MODEL_NAME
+    return sorted(names, key=lambda name: (name != preferred, name))
 
 
 async def activate_model(model_name: str):

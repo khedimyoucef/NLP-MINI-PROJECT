@@ -235,8 +235,16 @@
           const data = await res.json();
           if (Array.isArray(data.models) && data.models.length) {
             modelSelect.innerHTML = data.models
-              .map(name => `<option value="${name}">${name}</option>`)
+              .map(name => {
+                const label = name.startsWith('gpt2') && name !== 'story-gpt2'
+                  ? `${name} (base model)`
+                  : name;
+                return `<option value="${name}">${label}</option>`;
+              })
               .join('');
+            if (data.default && data.models.includes(data.default)) {
+              modelSelect.value = data.default;
+            }
           }
         } catch (error) {
           console.warn('Could not load model list:', error);

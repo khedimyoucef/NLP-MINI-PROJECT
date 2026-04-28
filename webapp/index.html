@@ -186,6 +186,13 @@
               Theme
               <input id="theme" placeholder="a brave mouse who loves music" required />
             </label>
+            <label>
+              Model
+              <select id="model_name">
+                <option value="story-gpt2">story-gpt2</option>
+                <option value="gpt2-xl">gpt2-xl</option>
+              </select>
+            </label>
             <div class="controls">
               <label>
                 Age group
@@ -219,11 +226,30 @@
       const form = document.getElementById('gen');
       const out = document.getElementById('out');
       const btn = document.getElementById('submitBtn');
+      const modelSelect = document.getElementById('model_name');
+
+      async function loadAvailableModels() {
+        try {
+          const res = await fetch('/models');
+          if (!res.ok) throw new Error('Model list fetch failed');
+          const data = await res.json();
+          if (Array.isArray(data.models) && data.models.length) {
+            modelSelect.innerHTML = data.models
+              .map(name => `<option value="${name}">${name}</option>`)
+              .join('');
+          }
+        } catch (error) {
+          console.warn('Could not load model list:', error);
+        }
+      }
+
+      loadAvailableModels();
 
       form.addEventListener('submit', async e =>{
         e.preventDefault();
         const theme = document.getElementById('theme').value.trim();
         const age = document.getElementById('age').value;
+        const modelName = modelSelect.value;
         const maxTokens = parseInt(document.getElementById('max_tokens').value || '300', 10);
         if (!theme) return;
         btn.disabled = true;
@@ -233,7 +259,7 @@
           const res = await fetch('/generate', {
             method:'POST',
             headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({theme, age_group: age, max_new_tokens: maxTokens})
+            body: JSON.stringify({theme, age_group: age, max_new_tokens: maxTokens, model_name: modelName})
           });
           const j = await res.json();
           out.textContent = j.text || 'No output returned.';

@@ -209,12 +209,16 @@
                 <input id="max_tokens" type="number" value="300" min="50" max="800" />
               </label>
             </div>
+            <label style="display: flex; flex-direction: row; align-items: center; gap: 8px; font-weight: normal; font-size: 0.95rem; margin-bottom: 8px; cursor: pointer;">
+              <input id="show_thinking" type="checkbox" checked style="width: auto; transform: scale(1.2);" /> Show Model Thinking Process
+            </label>
             <button id="submitBtn" type="submit">Generate story</button>
           </form>
         </div>
 
         <div class="card">
           <h3>Story</h3>
+          <div id="think-out" class="output" style="display: none; background: #f8faee; border-left: 4px solid var(--accent); padding: 16px; margin-bottom: 16px; font-style: italic; color: #505540; font-size: 0.9rem; border-radius: 4px; min-height: auto;"></div>
           <div id="out" class="output">Your story will appear here.</div>
         </div>
       </div>
@@ -272,16 +276,48 @@
           if (!res.ok) throw new Error('Generation failed');
           const reader = res.body.getReader();
           const decoder = new TextDecoder();
-          let result = '';
+          let buffer = '';
           out.textContent = '';
+          const thinkOut = document.getElementById('think-out');
+          thinkOut.style.display = 'none';
+          thinkOut.textContent = '';
+          const showThinking = document.getElementById('show_thinking').checked;
+
           while (true) {
             const {done, value} = await reader.read();
             if (done) break;
-            result += decoder.decode(value, {stream: true});
-            out.textContent = result;
+            buffer += decoder.decode(value, {stream: true});
+            
+            let displayHtml = '';
+            let thinkHtml = '';
+            
+            let currentStr = buffer;
+            let pStart = currentStr.indexOf('<think>');
+            while (pStart !== -1) {
+              displayHtml += currentStr.substring(0, pStart);
+              let pEnd = currentStr.indexOf('</think>', pStart + 7);
+              if (pEnd !== -1) {
+                thinkHtml += currentStr.substring(pStart + 7, pEnd) + '\n\n';
+                currentStr = currentStr.substring(pEnd + 8);
+              } else {
+                thinkHtml += currentStr.substring(pStart + 7);
+                currentStr = '';
+                break;
+              }
+              pStart = currentStr.indexOf('<think>');
+            }
+            displayHtml += currentStr;
+            
+            out.textContent = displayHtml;
+            if (thinkHtml.trim() && document.getElementById('show_thinking').checked) {
+              thinkOut.style.display = 'block';
+              thinkOut.textContent = thinkHtml.trim();
+            } else {
+              thinkOut.style.display = 'none';
+            }
           }
         } catch (err) {
-          out.textContent = 'Failed to generate. Is the API running?';
+          out.textContent = 'Failed to generate. Is the API running? ' + err;
         } finally {
           btn.disabled = false;
           btn.textContent = 'Generate story';

@@ -130,8 +130,23 @@ def generation_kwargs_for(model_name: str, max_new_tokens: int) -> dict:
 
 def generate_stream(req: GenerateRequest, model_name: str):
     prompt = build_prompt(req.theme, req.age_group, model_name)
-    inputs = tokenizer(prompt, return_tensors="pt").to(device)
     max_new_tokens = resolve_max_new_tokens(req.max_new_tokens)
+
+    if tokenizer == "llama_cpp":
+        stream = model.create_chat_completion(
+            messages=[{"role": "user", "content": prompt}],
+            max_tokens=max_new_tokens,
+            stream=True,
+            temperature=0.85,
+            top_p=0.95
+        )
+        for chunk in stream:
+            token = chunk["choices"][0]["delta"].get("content", "")
+            if token:
+                yield token
+        return
+
+    inputs = tokenizer(prompt, return_tensors="pt").to(device)
     streamer = TextIteratorStreamer(
         tokenizer,
         skip_prompt=True,
@@ -193,7 +208,10 @@ async def activate_model(model_name: str):
 
         model = loaded_model
         tokenizer = loaded_tokenizer
-        device = next(model.parameters()).device
+        if tokenizer == "llama_cpp":
+            device = torch.device("cpu")
+        else:
+            device = next(model.parameters()).device
         current_model_name = model_name
         if device.type == "cpu":
             threads = int(os.getenv("TORCH_THREADS", "0"))

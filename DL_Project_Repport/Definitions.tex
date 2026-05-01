@@ -1,0 +1,44 @@
+\newcommand{\teamMail}{\textbf{esi.devcore@gmail.com}}
+\newcommand{\brandName}{\textbf{StartEase }}
+
+
+
+% colors definitions
+%================================================%
+% hex values can be used like this:
+% there is no #, and hex letter should be all capital
+% \definecolor{dominantColor}{HTML}{FEFEFE}
+
+\definecolor{dominantColor}{HTML}{000000}
+
+
+%================================================%
+
+
+
+
+% Font sizes definitions %
+%================================================%
+% syntaxe:
+% \newcommand{\FontName}[1]{{\fontsize{fontSize}{lineSpacing}\selectfont\textbf{#1}}}
+
+\newcommand{\Titlesize}[1]{{\fontsize{40pt}{1pt}\selectfont\textbf{#1}}}
+
+
+
+\titleformat{\section}
+    {\color{dominantColor}\fontsize{25}{2.2em}\selectfont\bfseries}
+    {\thesection.}{0.3em}{}
+\titleformat{\subsection}
+    {\color{dominantColor}\fontsize{20}{2.2em}\selectfont\bfseries}
+    {\thesubsection.}{0.3em}{}
+\titleformat{\subsubsection}
+    {\color{dominantColor}\fontsize{18}{2.2em}\selectfont\bfseries}
+    {\thesubsubsection.}{0.3em}{}
+
+\renewcommand*{\contentsname}
+    {Table des Matières}
+\renewcommand*{\listfigurename}{Liste des Figures}
+\let \savenumberline \numberline
+\def \numberline#1{\savenumberline{#1.}}
+

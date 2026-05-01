@@ -1,0 +1,30 @@
+\usepackage{changepage}
+\newcommand{
+\makeHeaderFooter}{
+\thispagestyle{fancy}
+
+% this is the header of the cover page
+%=================================================%
+
+% change 0pt to make a horizontal line with the desired width
+\fancyhead{}
+
+% left
+\lhead{
+\includegraphics[width=4cm]{pics/molecule_logo.png}}
+
+% right side of the header
+\rhead{
+\includegraphics[width=3.2cm]{pics/esi.png} }
+%=================================================%
+
+% this is the footer of the cover page
+%=================================================%
+\fancyfoot{}
+\cfoot{
+    \fontsize{14pt}{1.2em}{\textbf{12 December 2025}}
+}
+%=================================================%
+
+\renewcommand{\headrulewidth}{0pt}
+}

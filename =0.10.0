@@ -1,0 +1,13 @@
+Collecting gguf
+  Downloading gguf-0.18.0-py3-none-any.whl.metadata (4.5 kB)
+Requirement already satisfied: numpy>=1.17 in /home/youcef/micromamba/envs/NLP/lib/python3.11/site-packages (from gguf) (2.4.4)
+Requirement already satisfied: pyyaml>=5.1 in /home/youcef/micromamba/envs/NLP/lib/python3.11/site-packages (from gguf) (6.0.3)
+Requirement already satisfied: requests>=2.25 in /home/youcef/micromamba/envs/NLP/lib/python3.11/site-packages (from gguf) (2.33.1)
+Requirement already satisfied: tqdm>=4.27 in /home/youcef/micromamba/envs/NLP/lib/python3.11/site-packages (from gguf) (4.67.3)
+Requirement already satisfied: charset_normalizer<4,>=2 in /home/youcef/micromamba/envs/NLP/lib/python3.11/site-packages (from requests>=2.25->gguf) (3.4.7)
+Requirement already satisfied: idna<4,>=2.5 in /home/youcef/micromamba/envs/NLP/lib/python3.11/site-packages (from requests>=2.25->gguf) (3.13)
+Requirement already satisfied: urllib3<3,>=1.26 in /home/youcef/micromamba/envs/NLP/lib/python3.11/site-packages (from requests>=2.25->gguf) (2.6.3)
+Requirement already satisfied: certifi>=2023.5.7 in /home/youcef/micromamba/envs/NLP/lib/python3.11/site-packages (from requests>=2.25->gguf) (2026.4.22)
+Downloading gguf-0.18.0-py3-none-any.whl (114 kB)
+Installing collected packages: gguf
+Successfully installed gguf-0.18.0

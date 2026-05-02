@@ -40,8 +40,8 @@
 \newcommand{\makeHeaderFooter}{
 \thispagestyle{fancy}
 \fancyhead{}
-\rhead{\includegraphics[width=3cm]{pics/placeholder_logo.png}} % Placeholder for ESI or University logo
-\lhead{\includegraphics[width=4cm]{pics/placeholder_logo.png}} % Placeholder for Project logo
+\rhead{} %\includegraphics[width=3cm]{pics/placeholder_logo.png}} % Placeholder for ESI or University logo
+\lhead{} %\includegraphics[width=4cm]{pics/placeholder_logo.png}} % Placeholder for Project logo
 \renewcommand{\headrulewidth}{0pt}
 \fancyfoot{}
 \cfoot{\fontsize{12pt}{1.2em}{\textbf{\today}}}
@@ -167,7 +167,7 @@ We fine-tune Google's \texttt{gemma-4-E2B-it} model on a curated children's stor
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=1\textwidth]{pics/placeholder_pipeline.png} % PLACEHOLDER
+%\includegraphics[width=1\textwidth]{pics/placeholder_pipeline.png} % PLACEHOLDER
 \caption{End-to-end LLM fine-tuning, merging, and quantization pipeline.}
 \label{fig:pipeline}
 \end{figure}
@@ -186,7 +186,7 @@ To solve this, we employ **QLoRA**. The base model is loaded in 4-bit precision 
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{pics/placeholder_lora.png} % PLACEHOLDER
+%\includegraphics[width=0.8\textwidth]{pics/placeholder_lora.png} % PLACEHOLDER
 \caption{LoRA architecture: small rank decomposition matrices are trained while the pre-trained weights remain frozen.}
 \label{fig:lora}
 \end{figure}
@@ -232,7 +232,7 @@ We subsampled 10,000 stories for this fine-tuning pass, splitting 95\% for train
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.8\textwidth]{pics/placeholder_dataset_stats.png} % PLACEHOLDER
+%\includegraphics[width=0.8\textwidth]{pics/placeholder_dataset_stats.png} % PLACEHOLDER
 \caption{Distribution of story lengths and age-level categories in the training sample.}
 \label{fig:dataset_stats}
 \end{figure}
@@ -269,7 +269,7 @@ Due to Gemma 4's massive 256K token vocabulary, calculating cross-entropy loss o
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=\textwidth]{pics/placeholder_training_curves.png} % PLACEHOLDER
+%\includegraphics[width=\textwidth]{pics/placeholder_training_curves.png} % PLACEHOLDER
 \caption{Training loss curve over the 1-epoch fine-tuning run.}
 \label{fig:loss_curve}
 \end{figure}
@@ -289,7 +289,7 @@ The FP16 model was further quantized down to \texttt{Q4\_K\_M} (4-bit, medium qu
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.85\textwidth]{pics/placeholder_gguf.png} % PLACEHOLDER
+%\includegraphics[width=0.85\textwidth]{pics/placeholder_gguf.png} % PLACEHOLDER
 \caption{The llama.cpp conversion and quantization process log.}
 \label{fig:gguf}
 \end{figure}
@@ -305,7 +305,7 @@ Post fine-tuning, the model reliably adhered to the age-level prefixes, adjustin
 
 \begin{figure}[H]
 \centering
-\includegraphics[width=0.9\textwidth]{pics/placeholder_generation.png} % PLACEHOLDER
+%\includegraphics[width=0.9\textwidth]{pics/placeholder_generation.png} % PLACEHOLDER
 \caption{Comparison of generated stories for Age 3-4 vs Age 11-12 from the same prompt.}
 \label{fig:generations}
 \end{figure}
@@ -332,7 +332,7 @@ While the fine-tuned model successfully generated formatted, age-appropriate chi
 PyTorch powers the underlying tensor math, while the HuggingFace Transformers library handles model loading, tokenization, and the training loop abstraction.
 \end{minipage}\hspace{.2in}
 \begin{minipage}{0.25\textwidth}\centering
-\includegraphics[width=0.7\textwidth]{pics/tech/placeholder_pytorch.png} % PLACEHOLDER
+%\includegraphics[width=0.7\textwidth]{pics/tech/placeholder_pytorch.png} % PLACEHOLDER
 \end{minipage}
 
 \vspace{.15in}
@@ -342,7 +342,7 @@ PyTorch powers the underlying tensor math, while the HuggingFace Transformers li
 The PEFT library manages the LoRA adapter injection, while BitsAndBytes enables the NF4 precision loading essential for QLoRA on consumer hardware.
 \end{minipage}\hspace{.2in}
 \begin{minipage}{0.25\textwidth}\centering
-\includegraphics[width=0.7\textwidth]{pics/tech/placeholder_peft.png} % PLACEHOLDER
+%\includegraphics[width=0.7\textwidth]{pics/tech/placeholder_peft.png} % PLACEHOLDER
 \end{minipage}
 
 \vspace{.15in}
@@ -352,7 +352,7 @@ The PEFT library manages the LoRA adapter injection, while BitsAndBytes enables 
 Written in pure C/C++, llama.cpp provides the engine for converting the PyTorch model into the highly optimized GGUF format for edge inference.
 \end{minipage}\hspace{.2in}
 \begin{minipage}{0.25\textwidth}\centering
-\includegraphics[width=0.5\textwidth]{pics/tech/placeholder_llama.png} % PLACEHOLDER
+%\includegraphics[width=0.5\textwidth]{pics/tech/placeholder_llama.png} % PLACEHOLDER
 \end{minipage}
 
 \vspace{.15in}
@@ -362,7 +362,7 @@ Written in pure C/C++, llama.cpp provides the engine for converting the PyTorch 
 Kaggle's cloud environment, specifically the dual T4 GPU accelerators, served as the primary hardware infrastructure for the fine-tuning process.
 \end{minipage}\hspace{.2in}
 \begin{minipage}{0.25\textwidth}\centering
-\includegraphics[width=0.7\textwidth]{pics/tech/placeholder_kaggle.png} % PLACEHOLDER
+%\includegraphics[width=0.7\textwidth]{pics/tech/placeholder_kaggle.png} % PLACEHOLDER
 \end{minipage}
 
 \end{document}

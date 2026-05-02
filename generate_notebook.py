@@ -102,31 +102,47 @@ def make_merge_cell():
         "from transformers import AutoModelForCausalLM\n",
         "from peft import PeftModel\n",
         "print('Loading base model in fp16 on CPU for merge...')\n",
-        "base = AutoModelForCausalLM.from_pretrained(model_id, torch_dtype=torch.float16, device_map='cpu')\n",
+        "base = AutoModelForCausalLM.from_pretrained(model_id, dtype=torch.float16, device_map='cpu')\n",
+        "try:\n",
+        "    from transformers.models.gemma4.modeling_gemma4 import Gemma4ClippableLinear\n",
+        "    for n, m in list(base.named_modules()):\n",
+        "        if isinstance(m, Gemma4ClippableLinear):\n",
+        "            parts = n.split('.')\n",
+        "            setattr(base.get_submodule('.'.join(parts[:-1])), parts[-1], m.linear)\n",
+        "except Exception as e: print(e)\n",
         "merged = PeftModel.from_pretrained(base, MODEL_OUT).merge_and_unload()\n",
         "merged.save_pretrained(MERGED_DIR)\n",
         "tokenizer.save_pretrained(MERGED_DIR)\n",
         "print(f'Merged model saved to {MERGED_DIR}')\n",
         "del base, merged; gc.collect()\n",
+        "print('Aggressively cleaning disk space...')\n",
+        "os.system('rm -rf ~/.cache/huggingface/hub')\n",
+        "os.system(f'rm -rf {MODEL_OUT}')\n",
     ])
 
 def make_llama_cpp_cell():
-    return cell_code(["%%bash\ngit clone https://github.com/ggerganov/llama.cpp.git\ncd llama.cpp && make -j4\n"])
+    return cell_code(["%%bash\ngit clone https://github.com/ggerganov/llama.cpp.git\ncd llama.cpp && cmake -B build && cmake --build build --config Release -j 4\n"])
 
 def make_convert_cell(name_tag):
     return cell_code([
         "%%bash\n",
-        "pip install -q -r llama.cpp/requirements.txt\n",
+        "pip install ./llama.cpp/gguf-py\n",
         f"python llama.cpp/convert_hf_to_gguf.py /kaggle/working/gemma_merged_fp16 --outfile /kaggle/working/ft-gemma-{name_tag}-fp16.gguf --outtype f16\n",
         "rm -rf /kaggle/working/gemma_merged_fp16\n",
-        f"./llama.cpp/llama-quantize /kaggle/working/ft-gemma-{name_tag}-fp16.gguf /kaggle/working/ft-gemma-{name_tag}-Q4_K_M.gguf Q4_K_M\n",
+        f"./llama.cpp/build/bin/llama-quantize /kaggle/working/ft-gemma-{name_tag}-fp16.gguf /kaggle/working/ft-gemma-{name_tag}-Q4_K_M.gguf Q4_K_M\n",
         f"rm -f /kaggle/working/ft-gemma-{name_tag}-fp16.gguf\n",
         f"ls -lh /kaggle/working/ft-gemma-{name_tag}-Q4_K_M.gguf\n",
     ])
 
 def make_upload_cell(name_tag, repo_filename):
     return cell_code([
-        "from huggingface_hub import HfApi\n",
+        "from huggingface_hub import HfApi, login\n",
+        "from kaggle_secrets import UserSecretsClient\n",
+        "try:\n",
+        "    user_secrets = UserSecretsClient()\n",
+        "    login(token=user_secrets.get_secret('HF_TOKEN'))\n",
+        "except Exception as e:\n",
+        "    print('Warning: HF_TOKEN not found in secrets. If upload fails, login manually.', e)\n",
         "api = HfApi()\n",
         f"GGUF = '/kaggle/working/ft-gemma-{name_tag}-Q4_K_M.gguf'\n",
         f"api.upload_file(path_or_fileobj=GGUF, path_in_repo='{repo_filename}', repo_id='khedim/NLP-MINI-PROJECT',\n",

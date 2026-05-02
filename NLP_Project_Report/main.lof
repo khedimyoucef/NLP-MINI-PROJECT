@@ -1,0 +1,6 @@
+\contentsline {figure}{\numberline {1}{\ignorespaces End-to-end LLM fine-tuning, merging, and quantization pipeline.}}{3}{figure.1}%
+\contentsline {figure}{\numberline {2}{\ignorespaces LoRA architecture: small rank decomposition matrices are trained while the pre-trained weights remain frozen.}}{4}{figure.2}%
+\contentsline {figure}{\numberline {3}{\ignorespaces Distribution of story lengths and age-level categories in the training sample.}}{6}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces Training loss curve over the 1-epoch fine-tuning run.}}{7}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces The llama.cpp conversion and quantization process log.}}{8}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Comparison of generated stories for Age 3-4 vs Age 11-12 from the same prompt.}}{9}{figure.6}%

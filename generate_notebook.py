@@ -117,7 +117,12 @@ notebook = {
                 ")\n",
                 "\n",
                 "tokenizer = AutoTokenizer.from_pretrained(model_id)\n",
-                "model = AutoModelForCausalLM.from_pretrained(model_id, quantization_config=bnb_config, device_map=\"auto\")"
+                "model = AutoModelForCausalLM.from_pretrained(\n",
+                "    model_id,\n",
+                "    quantization_config=bnb_config,\n",
+                "    device_map=\"balanced\",\n",
+                "    max_memory={0: \"12GB\", 1: \"12GB\"}\n",
+                ")"
             ]
         },
         {

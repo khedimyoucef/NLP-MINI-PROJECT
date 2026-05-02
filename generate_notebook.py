@@ -23,7 +23,7 @@ notebook = {
             "metadata": {},
             "outputs": [],
             "source": [
-                "!pip install -q -U peft bitsandbytes trl accelerate transformers datasets huggingface_hub"
+                "!pip install -q -U git+https://github.com/huggingface/transformers.git peft bitsandbytes trl accelerate datasets huggingface_hub"
             ]
         },
         {
@@ -256,8 +256,14 @@ notebook = {
                 "echo \"Converting merged model to GGUF (fp16)...\"\n",
                 "python llama.cpp/convert_hf_to_gguf.py /kaggle/working/gemma_merged_fp16 --outfile /kaggle/working/finetuned-gemma-fp16.gguf --outtype f16\n",
                 "\n",
+                "echo \"Deleting merged safetensors to free up 9GB of disk space before quantizing...\"\n",
+                "rm -rf /kaggle/working/gemma_merged_fp16\n",
+                "\n",
                 "echo \"Quantizing to Q4_K_M...\"\n",
-                "./llama.cpp/llama-quantize /kaggle/working/finetuned-gemma-fp16.gguf /kaggle/working/finetuned-gemma-Q4_K_M.gguf Q4_K_M"
+                "./llama.cpp/llama-quantize /kaggle/working/finetuned-gemma-fp16.gguf /kaggle/working/finetuned-gemma-Q4_K_M.gguf Q4_K_M\n",
+                "\n",
+                "echo \"Deleting huge fp16 GGUF to free up another 9GB of disk space...\"\n",
+                "rm -f /kaggle/working/finetuned-gemma-fp16.gguf"
             ]
         },
         {

@@ -78,7 +78,7 @@ def make_unwrap_and_lora_cell():
 
 def make_tokenize_cell():
     return cell_code([
-        "MAX_SEQ_LEN = 512\n",
+        "MAX_SEQ_LEN = 256\n",
         "def tok_fn(ex):\n",
         "    o = tokenizer(ex['text'], truncation=True, max_length=MAX_SEQ_LEN, padding='max_length')\n",
         "    o['labels'] = o['input_ids'].copy()\n",
@@ -144,6 +144,7 @@ e2b.append(cell_md(["# Fine-Tune Gemma 4 E2B-IT (QLoRA) — Safe Version\n",
 e2b.append(make_install_cell())
 e2b.append(cell_code([
     "import os, sys, torch, gc\n",
+    "os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'expandable_segments:True'\n",
     "BASE_DIR = '/kaggle/working'\n",
     "MODEL_OUT = os.path.join(BASE_DIR, 'gemma_lora_output')\n",
     "MERGED_DIR = os.path.join(BASE_DIR, 'gemma_merged_fp16')\n",
@@ -158,18 +159,20 @@ e2b.append(cell_code([
     "bnb = BitsAndBytesConfig(load_in_4bit=True, bnb_4bit_use_double_quant=True, bnb_4bit_quant_type='nf4', bnb_4bit_compute_dtype=torch.float16)\n",
     "tokenizer = AutoTokenizer.from_pretrained(model_id)\n",
     "model = AutoModelForCausalLM.from_pretrained(model_id, quantization_config=bnb, device_map='auto')\n",
-    "print('Model loaded. Device map:', model.hf_device_map)\n",
+    "print('Model loaded successfully!')\n",
 ]))
 e2b.append(make_unwrap_and_lora_cell())
 e2b.append(make_tokenize_cell())
 e2b.append(cell_code([
     "from transformers import Trainer, TrainingArguments, DataCollatorForLanguageModeling\n",
-    "args = TrainingArguments(output_dir=MODEL_OUT, per_device_train_batch_size=8, gradient_accumulation_steps=2,\n",
+    "args = TrainingArguments(output_dir=MODEL_OUT, per_device_train_batch_size=1, gradient_accumulation_steps=16,\n",
     "    optim='paged_adamw_8bit', save_steps=200, save_total_limit=1, logging_steps=20,\n",
     "    learning_rate=2e-4, max_grad_norm=0.3, num_train_epochs=1, warmup_steps=10,\n",
-    "    lr_scheduler_type='cosine', fp16=True, eval_strategy='steps', eval_steps=200)\n",
+    "    lr_scheduler_type='cosine', fp16=True, eval_strategy='steps', eval_steps=200,\n",
+    "    gradient_checkpointing=True)\n",
     "trainer = Trainer(model=model, args=args, train_dataset=train_ds, eval_dataset=eval_ds,\n",
     "    data_collator=DataCollatorForLanguageModeling(tokenizer=tokenizer, mlm=False))\n",
+    "print('Training with batch_size=1, grad_accum=16, gradient_checkpointing=True')\n",
     "trainer.train()\n",
     "trainer.model.save_pretrained(MODEL_OUT); tokenizer.save_pretrained(MODEL_OUT)\n",
 ]))
@@ -212,8 +215,7 @@ e4b.append(cell_code([
     "tokenizer = AutoTokenizer.from_pretrained(model_id)\n",
     "model = AutoModelForCausalLM.from_pretrained(model_id, quantization_config=bnb,\n",
     "    device_map='balanced', max_memory={0: '14GiB', 1: '14GiB'})\n",
-    "print('Model loaded across GPUs:')\n",
-    "for k, v in model.hf_device_map.items(): print(f'  {k} -> GPU {v}')\n",
+    "print('Model loaded across both GPUs!')\n",
 ]))
 e4b.append(make_unwrap_and_lora_cell())
 e4b.append(make_tokenize_cell())

@@ -167,7 +167,7 @@ We fine-tune Google's \texttt{gemma-4-E2B-it} model on a curated children's stor
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=1\textwidth]{pics/placeholder_pipeline.png} % PLACEHOLDER
+\includegraphics[width=1\textwidth]{pics/EndToEndLLMfinetuning.png} 
 \caption{End-to-end LLM fine-tuning, merging, and quantization pipeline.}
 \label{fig:pipeline}
 \end{figure}
@@ -186,7 +186,7 @@ To solve this, we employ **QLoRA**. The base model is loaded in 4-bit precision 
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.8\textwidth]{pics/placeholder_lora.png} % PLACEHOLDER
+\includegraphics[width=0.8\textwidth]{pics/LoRAarch.png}
 \caption{LoRA architecture: small rank decomposition matrices are trained while the pre-trained weights remain frozen.}
 \label{fig:lora}
 \end{figure}
@@ -232,7 +232,7 @@ We subsampled 10,000 stories for this fine-tuning pass, splitting 95\% for train
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.8\textwidth]{pics/placeholder_dataset_stats.png} % PLACEHOLDER
+\includegraphics[width=0.8\textwidth]{pics/DatasetPlots.png} % PLACEHOLDER
 \caption{Distribution of story lengths and age-level categories in the training sample.}
 \label{fig:dataset_stats}
 \end{figure}

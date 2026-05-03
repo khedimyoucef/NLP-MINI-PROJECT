@@ -1,26 +1,26 @@
-\contentsline {section}{\numberline {1}Introduction and Problem Statement}{3}{section.1}%
-\contentsline {subsection}{\numberline {1.1}The Challenge: Domain-Specific Text Generation}{3}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Our Approach: QLoRA Fine-Tuning and Edge Deployment}{3}{subsection.1.2}%
-\contentsline {section}{\numberline {2}Background: Parameter-Efficient Fine-Tuning}{4}{section.2}%
-\contentsline {subsection}{\numberline {2.1}The Memory Bottleneck}{4}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Quantization and QLoRA}{4}{subsection.2.2}%
-\contentsline {section}{\numberline {3}Model Architecture: Gemma 4}{5}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Overview of Gemma 4 E2B-IT}{5}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Why Gemma 4 E2B?}{5}{subsection.3.2}%
-\contentsline {section}{\numberline {4}Dataset}{6}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Source and Formatting}{6}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Dataset Statistics}{6}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Training Methodology}{7}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Configuration and Hardware}{7}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Overcoming Memory Constraints}{7}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Model Export and Deployment}{8}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Merging the Adapters}{8}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}GGUF Quantization via llama.cpp}{8}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Evaluation and Results}{9}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Qualitative Examples}{9}{subsection.7.1}%
-\contentsline {section}{\numberline {8}Discussion and Limitations}{10}{section.8}%
-\contentsline {section}{\numberline {9}Technologies Used}{11}{section.9}%
-\contentsline {subsection}{\numberline {9.1}PyTorch \& Transformers}{11}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}PEFT \& BitsAndBytes}{11}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}llama.cpp}{11}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Kaggle}{11}{subsection.9.4}%
+\contentsline {section}{\numberline {1}Introduction and Problem Statement}{4}{section.1}%
+\contentsline {subsection}{\numberline {1.1}The Challenge: Domain-Specific Text Generation}{4}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Our Approach: QLoRA Fine-Tuning and Edge Deployment}{4}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Background: Parameter-Efficient Fine-Tuning}{6}{section.2}%
+\contentsline {subsection}{\numberline {2.1}The Memory Bottleneck}{6}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Quantization and QLoRA}{6}{subsection.2.2}%
+\contentsline {section}{\numberline {3}Model Architecture: Gemma 4}{7}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Overview of Gemma 4 E2B-IT}{7}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Why Gemma 4 E2B?}{7}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Dataset}{8}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Source and Formatting}{8}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Dataset Statistics}{8}{subsection.4.2}%
+\contentsline {section}{\numberline {5}Training Methodology}{9}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Configuration and Hardware}{9}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Overcoming Memory Constraints}{9}{subsection.5.2}%
+\contentsline {section}{\numberline {6}Model Export and Deployment}{10}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Merging the Adapters}{10}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}GGUF Quantization via llama.cpp}{10}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Evaluation and Results}{11}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Qualitative Examples}{11}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Discussion and Limitations}{12}{section.8}%
+\contentsline {section}{\numberline {9}Technologies Used}{13}{section.9}%
+\contentsline {subsection}{\numberline {9.1}PyTorch \& Transformers}{13}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}PEFT \& BitsAndBytes}{13}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}llama.cpp}{13}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Kaggle}{13}{subsection.9.4}%

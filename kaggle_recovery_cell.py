@@ -18,7 +18,7 @@ except Exception as e:
 BASE_DIR = '/kaggle/working'
 MODEL_OUT = os.path.join(BASE_DIR, 'gemma_lora_output')
 MERGED_DIR = os.path.join(BASE_DIR, 'gemma_merged_fp16')
-model_id = 'google/gemma-4-2b-it' # Base model ID
+model_id = 'google/gemma-4-E2B-it' # Base model ID
 
 # Check if we survived!
 if not os.path.exists(MODEL_OUT):

@@ -17,7 +17,10 @@ META = {
 # ============================================================
 
 def make_install_cell():
-    return cell_code(["!pip install -q -U git+https://github.com/huggingface/transformers.git peft bitsandbytes accelerate datasets huggingface_hub\n"])
+    return cell_code([
+        "!pip uninstall -y torchao torchvision\n",
+        "!pip install -q -U git+https://github.com/huggingface/transformers.git peft bitsandbytes accelerate datasets huggingface_hub\n"
+    ])
 
 def make_login_cell():
     return cell_code([

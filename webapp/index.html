@@ -240,9 +240,14 @@
           if (Array.isArray(data.models) && data.models.length) {
             modelSelect.innerHTML = data.models
               .map(name => {
-                const label = name.startsWith('gpt2') && name !== 'story-gpt2'
-                  ? `${name} (base model)`
-                  : name;
+                let label = name;
+                if (name === 'story-gpt2') {
+                  label = `${name} (fine-tuned GPT-2)`;
+                } else if (name.startsWith('gpt2')) {
+                  label = `${name} (base model)`;
+                } else if (name.includes('gemma')) {
+                  label = name.includes('finetuned') ? `${name} (fine-tuned Gemma GGUF)` : `${name} (Gemma GGUF)`;
+                }
                 return `<option value="${name}">${label}</option>`;
               })
               .join('');

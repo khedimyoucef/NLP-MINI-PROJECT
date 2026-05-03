@@ -47,7 +47,7 @@ async def startup_event():
     global model, tokenizer, device
     model_dir_env = os.getenv("MODEL_DIR")
     if model_dir_env:
-        default_model = model_dir_env
+        default_model = Path(model_dir_env).name
     else:
         default_model = DEFAULT_MODEL_NAME
 

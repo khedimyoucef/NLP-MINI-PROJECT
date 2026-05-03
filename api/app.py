@@ -1,4 +1,5 @@
 import asyncio
+import gc
 import os
 from pathlib import Path
 from threading import Thread
@@ -35,7 +36,10 @@ class GenerateRequest(BaseModel):
     max_new_tokens: Optional[int] = None
     model_name: Optional[str] = None
 
-model_cache = {}
+
+class ActivateModelRequest(BaseModel):
+    model_name: str
+
 current_model_name = None
 model_lock = asyncio.Lock()
 base_device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -68,6 +72,23 @@ async def root():
 async def list_models():
     models = discover_models()
     return {"models": models, "default": current_model_name}
+
+@app.get("/current-model")
+async def current_model_info():
+    return {
+        "model_name": current_model_name,
+        "model_loaded": model is not None,
+        "device": str(device) if device else None,
+        "tokenizer_type": "llama_cpp" if tokenizer == "llama_cpp" else "transformers"
+    }
+
+
+@app.post("/activate-model")
+async def activate_model_endpoint(req: ActivateModelRequest):
+    if req.model_name not in discover_models():
+        raise HTTPException(status_code=400, detail=f"Unknown model: {req.model_name}")
+    await activate_model(req.model_name)
+    return await current_model_info()
 
 @app.post("/generate")
 async def generate(req: GenerateRequest):
@@ -200,11 +221,18 @@ async def activate_model(model_name: str):
         if not model_dir.exists():
             raise HTTPException(status_code=404, detail=f"Model directory not found: {model_name}")
 
-        if model_name in model_cache:
-            loaded_model, loaded_tokenizer = model_cache[model_name]
-        else:
-            loaded_model, loaded_tokenizer = load_model(str(model_dir), device=base_device)
-            model_cache[model_name] = (loaded_model, loaded_tokenizer)
+        if model is not None:
+            try:
+                del model
+                del tokenizer
+                if base_device == "cuda":
+                    torch.cuda.empty_cache()
+                gc.collect()
+            except Exception as e:
+                print(f"Warning: Error during model cleanup: {e}")
+
+        print(f"Loading {model_name} from disk...")
+        loaded_model, loaded_tokenizer = load_model(str(model_dir), device=base_device)
 
         model = loaded_model
         tokenizer = loaded_tokenizer
@@ -213,6 +241,7 @@ async def activate_model(model_name: str):
         else:
             device = next(model.parameters()).device
         current_model_name = model_name
+        print(f"Model {model_name} activated on {device}")
         if device.type == "cpu":
             threads = int(os.getenv("TORCH_THREADS", "0"))
             if threads > 0:

@@ -97,7 +97,7 @@
         font-weight: 600;
       }
 
-      input, select {
+      input, select, textarea {
         width: 100%;
         padding: 12px 14px;
         border-radius: 12px;
@@ -105,6 +105,13 @@
         font-size: 1rem;
         font-family: inherit;
         background: #fbfaf8;
+      }
+
+      textarea {
+        resize: none;
+        overflow: hidden;
+        min-height: 48px;
+        line-height: 1.5;
       }
 
       .controls {
@@ -126,9 +133,20 @@
         box-shadow: 0 12px 24px rgba(31, 91, 77, 0.25);
       }
 
+      button.secondary {
+        background: #efe8da;
+        color: var(--ink);
+        box-shadow: none;
+        border: 1px solid var(--border);
+      }
+
       button:hover {
         transform: translateY(-1px);
         background: #1a4e41;
+      }
+
+      button.secondary:hover:not(:disabled) {
+        background: #e7dcc9;
       }
 
       button:disabled {
@@ -184,7 +202,7 @@
           <form id="gen">
             <label>
               Theme
-              <input id="theme" placeholder="a brave mouse who loves music" required />
+              <textarea id="theme" placeholder="a brave mouse who loves music" required></textarea>
             </label>
             <label>
               Model
@@ -192,6 +210,7 @@
                 <option value="story-gpt2">story-gpt2</option>
                 <option value="gpt2-xl">gpt2-xl</option>
               </select>
+              <div id="model_status" style="font-size: 0.85rem; color: var(--muted); margin-top: 4px; font-weight: normal;">Loading models...</div>
             </label>
             <div class="controls">
               <label>
@@ -212,7 +231,10 @@
             <label style="display: flex; flex-direction: row; align-items: center; gap: 8px; font-weight: normal; font-size: 0.95rem; margin-bottom: 8px; cursor: pointer;">
               <input id="show_thinking" type="checkbox" checked style="width: auto; transform: scale(1.2);" /> Show Model Thinking Process
             </label>
-            <button id="submitBtn" type="submit">Generate story</button>
+            <div class="controls">
+              <button id="submitBtn" type="submit">Generate story</button>
+              <button id="stopBtn" type="button" class="secondary" disabled>Stop generation</button>
+            </div>
           </form>
         </div>
 
@@ -230,10 +252,35 @@
       const form = document.getElementById('gen');
       const out = document.getElementById('out');
       const btn = document.getElementById('submitBtn');
+      const stopBtn = document.getElementById('stopBtn');
       const modelSelect = document.getElementById('model_name');
+      const modelStatus = document.getElementById('model_status');
+      let activeAbortController = null;
+      let modelSwitchInProgress = false;
+
+      function setGenerationState(isGenerating) {
+        btn.disabled = isGenerating;
+        stopBtn.disabled = !isGenerating;
+        modelSelect.disabled = isGenerating || modelSwitchInProgress;
+        btn.textContent = isGenerating ? 'Generating...' : 'Generate story';
+      }
+
+      function setModelSwitchState(isSwitching, message) {
+        modelSwitchInProgress = isSwitching;
+        modelSelect.disabled = isSwitching || btn.disabled;
+        modelStatus.textContent = message;
+        modelStatus.style.color = isSwitching ? 'var(--muted)' : 'var(--accent)';
+      }
+
+      stopBtn.addEventListener('click', () => {
+        if (activeAbortController) {
+          activeAbortController.abort();
+        }
+      });
 
       async function loadAvailableModels() {
         try {
+          setModelSwitchState(true, 'Loading models...');
           const res = await fetch('/models');
           if (!res.ok) throw new Error('Model list fetch failed');
           const data = await res.json();
@@ -254,13 +301,59 @@
             if (data.default && data.models.includes(data.default)) {
               modelSelect.value = data.default;
             }
+            await activateSelectedModel(modelSelect.value, false);
+          } else {
+            setModelSwitchState(false, 'No models found');
+            modelStatus.style.color = 'var(--muted)';
           }
         } catch (error) {
+          setModelSwitchState(false, 'Failed to load model list');
+          modelStatus.style.color = 'var(--muted)';
           console.warn('Could not load model list:', error);
         }
       }
 
+      async function activateSelectedModel(modelName, showBusy = true) {
+        try {
+          if (showBusy) {
+            setModelSwitchState(true, `Switching to ${modelName}...`);
+          }
+          const res = await fetch('/activate-model', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ model_name: modelName })
+          });
+          if (!res.ok) throw new Error(`Switch failed: ${res.status}`);
+          const info = await res.json();
+          if (!info.model_loaded || info.model_name !== modelName) {
+            throw new Error('Server reported inconsistent model state');
+          }
+          setModelSwitchState(false, `Loaded: ${info.model_name}`);
+          return true;
+        } catch (error) {
+          setModelSwitchState(false, `Failed to load ${modelName}`);
+          modelStatus.style.color = '#b04a3a';
+          console.error('Model activation failed:', error);
+          return false;
+        }
+      }
+
       loadAvailableModels();
+
+      // Auto-grow textarea as user types
+      const themeTextarea = document.getElementById('theme');
+      function autoGrowTextarea() {
+        themeTextarea.style.height = 'auto';
+        themeTextarea.style.height = Math.max(themeTextarea.scrollHeight, 48) + 'px';
+      }
+      themeTextarea.addEventListener('input', autoGrowTextarea);
+
+      modelSelect.addEventListener('change', async () => {
+        if (activeAbortController) {
+          activeAbortController.abort();
+        }
+        await activateSelectedModel(modelSelect.value, true);
+      });
 
       form.addEventListener('submit', async e =>{
         e.preventDefault();
@@ -269,14 +362,23 @@
         const modelName = modelSelect.value;
         const maxTokens = parseInt(document.getElementById('max_tokens').value || '300', 10);
         if (!theme) return;
-        btn.disabled = true;
-        btn.textContent = 'Generating...';
+        const modelReady = await activateSelectedModel(modelName, false);
+        if (!modelReady) {
+          out.textContent = 'Unable to switch model. Please try again.';
+          return;
+        }
+        if (activeAbortController) {
+          activeAbortController.abort();
+        }
+        activeAbortController = new AbortController();
+        setGenerationState(true);
         out.textContent = 'Generating story...';
         try {
           const res = await fetch('/generate', {
             method:'POST',
             headers:{'Content-Type':'application/json'},
-            body: JSON.stringify({theme, age_group: age, max_new_tokens: maxTokens, model_name: modelName})
+            body: JSON.stringify({theme, age_group: age, max_new_tokens: maxTokens, model_name: modelName}),
+            signal: activeAbortController.signal
           });
           if (!res.ok) throw new Error('Generation failed');
           const reader = res.body.getReader();
@@ -322,10 +424,14 @@
             }
           }
         } catch (err) {
-          out.textContent = 'Failed to generate. Is the API running? ' + err;
+          if (err && err.name === 'AbortError') {
+            out.textContent = 'Generation stopped.';
+          } else {
+            out.textContent = 'Failed to generate. Is the API running? ' + err;
+          }
         } finally {
-          btn.disabled = false;
-          btn.textContent = 'Generate story';
+          activeAbortController = null;
+          setGenerationState(false);
         }
       });
     </script>

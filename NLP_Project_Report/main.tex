@@ -228,7 +228,14 @@ To solve this, we employ \textbf{QLoRA} for the Gemma model. The base model is l
 For this project, we employed a mix of fine-tuned and base models to thoroughly evaluate the impact of domain adaptation against out-of-the-box generalization.
 
 \subsection{Gemma 4 E2B-IT (Fine-Tuned)}
-We selected the \texttt{gemma-4-E2B-it} (Instruction Tuned) variant, featuring 2.3 billion parameters. It offers a high capacity-to-size ratio, fits comfortably on a single 16GB GPU, and is pre-aligned to follow instructions. Its massive 256,000-token vocabulary gives it exceptional structural generation capacity.
+We selected the \texttt{gemma-4-E2B-it} (Instruction Tuned) variant, featuring roughly 2.3 billion effective parameters. Released as part of the Gemma 4 family, this model incorporates several advanced architectural innovations that make it particularly suited for our edge-deployment and domain adaptation goals:
+
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item \textbf{Per-Layer Embeddings (PLE):} The "E" in E2B stands for "Effective" parameters. Instead of a single large input embedding table, PLE feeds a secondary embedding signal into every decoder layer. This provides the representational depth of a larger model while keeping the actual active parameter count and memory footprint low.
+    \item \textbf{Alternating Attention \& Shared KV Cache:} The architecture alternates between local sliding-window attention and global full-context attention. Combined with a shared Key-Value (KV) cache in the final layers, this drastically reduces memory consumption during inference and allows for a massive context window of up to 128K tokens.
+    \item \textbf{Dense \& Multimodal Native:} Unlike the larger Mixture-of-Experts (MoE) variants in the Gemma 4 family, E2B is a dense transformer. While natively multimodal (supporting text, image, and audio), our project strictly utilizes its robust text-processing capabilities via its massive 256,000-token vocabulary.
+    \item \textbf{Edge-Optimization:} Designed specifically to minimize VRAM usage and latency, it fits comfortably on a single 16GB GPU for QLoRA fine-tuning and can be quantized to run entirely on consumer CPU RAM.
+\end{itemize}
 
 \subsection{GPT-2 Small (Fine-Tuned)}
 As a lightweight alternative to Gemma, we fully fine-tuned \texttt{gpt2-small} (124M parameters). Being much smaller, it allowed us to experiment with full fine-tuning without the need for QLoRA. It serves as our baseline for domain-adapted text generation with limited capacity.

@@ -258,7 +258,8 @@ To contrast our fine-tuned models with zero-shot generalists, we included two ba
 
 \subsection{Source and Formatting}
 We utilized the \texttt{ajibawa-2023/Children-Stories-Collection} dataset from Hugging Face. The dataset consists of story prompts and corresponding stories suitable for children. 
-
+it can be found here :
+\url {https://huggingface.co/datasets/ajibawa-2023/Children-Stories-Collection}
 To teach the model to adapt its vocabulary, we prefixed each prompt with an age-level constraint. The training samples were formatted into Gemma's native instruction format:
 
 \begin{lstlisting}[language=json, breaklines=true, basicstyle=\small\ttfamily]
@@ -581,5 +582,31 @@ bash scripts/run_api.sh
 \end{pythoncode}
 
 Once started, open \url{http://localhost:8000/} in your web browser. The app will automatically detect any models present in the \texttt{models/} directory and make them available in the dropdown menu. If you only downloaded one model, the app will safely load it without crashing.
+
+\clearpage
+\section{References \& Resources}
+\label{sec:references}
+
+A consolidated list of all repositories, models, and references mentioned throughout this report:
+
+\begin{itemize}[noitemsep, topsep=0pt]
+    \item \textbf{GitHub Project Repository (Source Code):} \\
+    \url{https://github.com/khedimyoucef/NLP-MINI-PROJECT}
+    
+    \item \textbf{Gemma 4 Family Details (Google):} \\
+    \url{https://huggingface.co/google/gemma-4-E2B-it}
+    
+    \item \textbf{Fine-Tuned Gemma Model (GGUF):} \\
+    \url{https://huggingface.co/khedim/NLP-MINI-PROJECT/tree/main/gemma-e2b}
+    
+    \item \textbf{Fine-Tuned GPT-2 Small Model:} \\
+    \url{https://huggingface.co/khedim/NLP-MINI-PROJECT/tree/main}
+    
+    \item \textbf{Gemma LoRA Adapter Weights:} \\
+    \url{https://huggingface.co/khedim/NLP-MINI-PROJECT-adapter/tree/main}
+    
+    \item \textbf{Local API Endpoint (When running locally):} \\
+    \url{http://localhost:8000/}
+\end{itemize}
 
 \end{document}

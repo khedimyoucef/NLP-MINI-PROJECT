@@ -49,17 +49,27 @@ default_max_new_tokens = int(os.getenv("MAX_NEW_TOKENS", "300"))
 @app.on_event("startup")
 async def startup_event():
     global model, tokenizer, device
+    available = discover_models()
+    if not available:
+        print("WARNING: No models found in 'models/' directory.")
+        print("Download at least one model to use the app. See the project report for instructions.")
+        return
+
     model_dir_env = os.getenv("MODEL_DIR")
     if model_dir_env:
         default_model = Path(model_dir_env).name
     else:
         default_model = DEFAULT_MODEL_NAME
 
-    available = discover_models()
-    if default_model not in available and MODEL_ROOT.exists():
-        default_model = DEFAULT_MODEL_NAME
+    if default_model not in available:
+        default_model = available[0]
+        print(f"Default model '{DEFAULT_MODEL_NAME}' not found, using: {default_model}")
 
-    await activate_model(default_model)
+    try:
+        await activate_model(default_model)
+    except Exception as e:
+        print(f"WARNING: Could not load model '{default_model}': {e}")
+        print("The app will start. Select and activate a model from the UI.")
 
 
 @app.get("/")

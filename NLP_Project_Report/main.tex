@@ -193,7 +193,7 @@ Two primary challenges define this project:
 \subsection{Our Approach: Multi-Model Fine-Tuning and Edge Deployment}
 We fine-tuned Google's \texttt{gemma-4-E2B-it} and \texttt{gpt2-small} models on a curated children's story dataset. To bypass hardware limitations for the larger Gemma model, we utilized 4-bit Quantized Low-Rank Adaptation (QLoRA). Once trained, the adapters were merged back into the base model and converted into a highly optimized \texttt{.gguf} format, enabling fast, local inference on edge devices via \texttt{llama.cpp}. For comparison, we also included two base models: \texttt{gpt2-xl} and \texttt{gemma-4-E4B-it}.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=1\textwidth]{pics/EndToEndLLMfinetuning.png} 
 \caption{End-to-end LLM fine-tuning, merging, and quantization pipeline.}
@@ -201,7 +201,6 @@ We fine-tuned Google's \texttt{gemma-4-E2B-it} and \texttt{gpt2-small} models on
 \end{figure}
 
 \clearpage
-\newpage
 
 \section{Background: Parameter-Efficient Fine-Tuning}
 \label{sec:background}
@@ -212,7 +211,7 @@ Training an LLM requires memory for model weights, gradients, optimizer states, 
 \subsection{Quantization and QLoRA}
 To solve this, we employ \textbf{QLoRA} for the Gemma model. The base model is loaded in 4-bit precision (NF4), drastically reducing the memory footprint. Instead of updating the original weights, QLoRA injects small, trainable "adapter" matrices into the model's layers. During training, only these adapter weights are updated while the base model remains frozen.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{pics/LoRAarch.png}
 \caption{LoRA architecture: small rank decomposition matrices are trained while the pre-trained weights remain frozen.}
@@ -220,7 +219,6 @@ To solve this, we employ \textbf{QLoRA} for the Gemma model. The base model is l
 \end{figure}
 
 \clearpage
-\newpage
 
 \section{Model Architectures and Selection}
 \label{sec:model}
@@ -236,6 +234,13 @@ We selected the \texttt{gemma-4-E2B-it} (Instruction Tuned) variant, featuring r
     \item \textbf{Dense \& Multimodal Native:} Unlike the larger Mixture-of-Experts (MoE) variants in the Gemma 4 family, E2B is a dense transformer. While natively multimodal (supporting text, image, and audio), our project strictly utilizes its robust text-processing capabilities via its massive 256,000-token vocabulary.
     \item \textbf{Edge-Optimization:} Designed specifically to minimize VRAM usage and latency, it fits comfortably on a single 16GB GPU for QLoRA fine-tuning and can be quantized to run entirely on consumer CPU RAM.
 \end{itemize}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.8\textwidth]{pics/gemma4famillySpecs.png}
+\caption{a bit of details about the gemma 4 family for more details visit : \url{https://huggingface.co/google/gemma-4-E2B-it}}
+\label{fig:gemma4famillySpecs}
+\end{figure}
+
 
 \subsection{GPT-2 Small (Fine-Tuned)}
 As a lightweight alternative to Gemma, we fully fine-tuned \texttt{gpt2-small} (124M parameters). Being much smaller, it allowed us to experiment with full fine-tuning without the need for QLoRA. It serves as our baseline for domain-adapted text generation with limited capacity.
@@ -248,7 +253,6 @@ To contrast our fine-tuned models with zero-shot generalists, we included two ba
 \end{itemize}
 
 \clearpage
-\newpage
 
 \section{Dataset}
 \label{sec:dataset}
@@ -266,10 +270,19 @@ Write a story about a brave little toaster.<end_of_turn>
 Once upon a time, there was a little silver toaster. He lived in a warm kitchen...<end_of_turn>
 \end{lstlisting}
 
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=1\textwidth]{pics/datasetSampleExample.png}
+\caption{An example sample of the dataset (formatted in prompt-text(generated story) pairs)}
+\label{fig:dataset_sample}
+\end{figure}
+
 \subsection{Dataset Statistics}
+the dataset contains roughly 900K samples and we only used a subset of 10k samples of it in order to reduce the training time and the memory usage. 
 We subsampled 10,000 stories for this fine-tuning pass, splitting 95\% for training and 5\% for evaluation. 
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.8\textwidth]{pics/DatasetPlots.png}
 \caption{Distribution of story lengths and age-level categories in the training sample.}
@@ -277,7 +290,6 @@ We subsampled 10,000 stories for this fine-tuning pass, splitting 95\% for train
 \end{figure}
 
 \clearpage
-\newpage
 
 \section{Training Methodology}
 \label{sec:training}
@@ -306,7 +318,7 @@ Due to Gemma 4's massive 256K token vocabulary, calculating cross-entropy loss o
     \item Setting \texttt{PYTORCH\_CUDA\_ALLOC\_CONF=expandable\_segments:True} to prevent CUDA memory fragmentation.
 \end{enumerate}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=\textwidth]{pics/LossPlot.png} 
 \caption{Training loss curve over the 1-epoch fine-tuning run. The loss fluctuates over the steps but maintains an overall downward trend, indicating effective learning and adaptation to the domain.}
@@ -314,7 +326,6 @@ Due to Gemma 4's massive 256K token vocabulary, calculating cross-entropy loss o
 \end{figure}
 
 \clearpage
-\newpage
 
 \section{Model Export and Deployment}
 \label{sec:export}
@@ -326,7 +337,7 @@ To deploy the model locally, we converted the merged model into the GGUF standar
 
 Another problem we faced was the management of Kaggle's limited RAM and storage resources, so we had to implement a pipeline that constantly monitored and cleaned up unnecessary files after each stage.
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{pics/stage1log.png}\\[0.8em]
 \includegraphics[width=0.85\textwidth]{pics/stage2log.png}
@@ -334,7 +345,7 @@ Another problem we faced was the management of Kaggle's limited RAM and storage 
 \label{fig:gguf_part1}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{pics/stage3-1log.png}\\[0.8em]
 \includegraphics[width=0.85\textwidth]{pics/stage3-2log.png}
@@ -342,7 +353,7 @@ Another problem we faced was the management of Kaggle's limited RAM and storage 
 \label{fig:gguf_part2}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
 \includegraphics[width=0.85\textwidth]{pics/stage3-4log.png}\\[0.8em]
 \includegraphics[width=0.85\textwidth]{pics/stage3-5log.png}\\[0.8em]
@@ -356,31 +367,30 @@ The final GGUF file was tested on a local machine using \texttt{llama.cpp} to ve
 \subsection{Hugging Face Repositories}
 The resulting models were uploaded to Hugging Face for persistence:
 \begin{itemize}
-    \item \textbf{Fine-Tuned Gemma (GGUF):} \\ \url{https://huggingface.co/khedim/NLP-MINI-PROJECT/tree/main/gemma-e2b}
+    \item \textbf{Fine-Tuned Gemma (GGUF)(in the same repo as gpt2 small finetuned but in the gemma-e2b subfolder to avoid any conflicts):} \\ \url{https://huggingface.co/khedim/NLP-MINI-PROJECT/tree/main/gemma-e2b}
     \item \textbf{Fine-Tuned GPT-2 Small:} \\ \url{https://huggingface.co/khedim/NLP-MINI-PROJECT/tree/main}
     \item \textbf{Gemma LoRA Adapter Weights:} \\ \url{https://huggingface.co/khedim/NLP-MINI-PROJECT-adapter/tree/main}
 \end{itemize}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.6\textwidth]{pics/gemma2HF.png}
+\includegraphics[width=1\textwidth]{pics/gemma2HF.png}
 \caption{Gemma model repository on Hugging Face.}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.6\textwidth]{pics/gpt2-smallHF.png}
+\includegraphics[width=1\textwidth]{pics/gpt2-smallHF.png}
 \caption{GPT-2 Small model repository on Hugging Face.}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
-\includegraphics[width=0.6\textwidth]{pics/adapterWeightsHF.png}
+\includegraphics[width=1\textwidth]{pics/adapterWeightsHF.png}
 \caption{Adapter weights repository on Hugging Face.}
 \end{figure}
 
 \clearpage
-\newpage
 
 \section{Evaluation and Results}
 \label{sec:results}
@@ -390,18 +400,32 @@ Post fine-tuning, the model reliably adhered to the age-level prefixes, adjustin
 
 \textit{Prompt: "Write a story about a disobedient kid who does want to study and ends up failing school."}
 
-\begin{figure}[H]
+\begin{figure}[htbp]
 \centering
-\textbf{Age 3-4 Generation:} \\
-\includegraphics[width=0.9\textwidth]{pics/GemmaE2Btest11.png}
-\includegraphics[width=0.9\textwidth]{pics/GemmaE2Btest12.png}
+\textbf{Age 3-4 Generation (Part 1):} \\
+\includegraphics[width=\textwidth, height=0.75\textheight, keepaspectratio]{pics/GemmaE2Btest11.png}
+\caption{Age 3-4 generation from the prompt (Part 1).}
+\label{fig:gen_age3_4_part1}
+\end{figure}
 
-\vspace{1em}
+\clearpage
+
+\begin{figure}[htbp]
+\centering
+\textbf{Age 3-4 Generation (Part 2):} \\
+\includegraphics[width=\textwidth, height=0.75\textheight, keepaspectratio]{pics/GemmaE2Btest12.png}
+\caption{Age 3-4 generation from the prompt (Part 2).}
+\label{fig:gen_age3_4_part2}
+\end{figure}
+
+\clearpage
+
+\begin{figure}[htbp]
+\centering
 \textbf{Age 11-12 Generation:} \\
-\includegraphics[width=0.9\textwidth]{pics/GemmaE2Btest2.png}
-
-\caption{Comparison of generated stories for Age 3-4 vs Age 11-12 from the same prompt.}
-\label{fig:generations}
+\includegraphics[width=\textwidth, height=0.75\textheight, keepaspectratio]{pics/GemmaE2Btest2.png}
+\caption{Age 11-12 generation from the same prompt.}
+\label{fig:gen_age11_12}
 \end{figure}
 
 As seen in the results, the model successfully uses more complex language and grammar for the older age group. It also adapts the tone: the ending in the 3-4 age group is more positive and simple, while the ending in the 11-12 age group is more realistic and complex. This demonstrates the model's ability to learn storytelling styles suited to the emotional and intellectual differences between age groups.
@@ -410,7 +434,6 @@ As seen in the results, the model successfully uses more complex language and gr
 When compared to the base \texttt{gpt2-xl} and \texttt{gemma-4-E4B-it} models, the fine-tuned models (\texttt{gpt2-small} and \texttt{gemma-4-E2B-it}) showed significantly better adherence to the specific formatting and stylistic constraints of children's stories. The base models, while possessing stronger general reasoning, often ignored the age-specific constraints and generated generic or overly complex narratives.
 
 \clearpage
-\newpage
 
 \section{Discussion and Limitations}
 
@@ -422,7 +445,6 @@ While the fine-tuned models successfully generated formatted, age-appropriate ch
 \end{itemize}
 
 \clearpage
-\newpage
 
 \section{Technologies Used}
 
@@ -505,7 +527,6 @@ While the fine-tuned models successfully generated formatted, age-appropriate ch
 \end{minipage}
 
 \clearpage
-\newpage
 
 \section{Local Reproduction Guide}
 \label{sec:reproduction}
@@ -536,6 +557,20 @@ bash scripts/download_model.sh
 \begin{pythoncode}[Download Gemma E2B]
 export REPO_ID="khedim/NLP-MINI-PROJECT"
 export MODEL_DIR="models/gemma-4-E2B-it-finetuned"
+bash scripts/download_model.sh
+\end{pythoncode}
+
+\textbf{Example: Downloading Base GPT-2 XL}
+\begin{pythoncode}[Download GPT-2 XL]
+export REPO_ID="openai-community/gpt2-xl"
+export MODEL_DIR="models/gpt2-xl"
+bash scripts/download_model.sh
+\end{pythoncode}
+
+\textbf{Example: Downloading Base Gemma 4 E4B-IT (GGUF)}
+\begin{pythoncode}[Download Gemma E4B]
+export REPO_ID="khedim/NLP-MINI-PROJECT"
+export MODEL_DIR="models/gemma-4-E4B-it-gguf"
 bash scripts/download_model.sh
 \end{pythoncode}
 

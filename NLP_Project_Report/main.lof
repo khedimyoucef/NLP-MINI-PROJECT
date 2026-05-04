@@ -1,11 +1,15 @@
 \contentsline {figure}{\numberline {1}{\ignorespaces End-to-end LLM fine-tuning, merging, and quantization pipeline.}}{5}{figure.1}%
 \contentsline {figure}{\numberline {2}{\ignorespaces LoRA architecture: small rank decomposition matrices are trained while the pre-trained weights remain frozen.}}{6}{figure.2}%
-\contentsline {figure}{\numberline {3}{\ignorespaces Distribution of story lengths and age-level categories in the training sample.}}{8}{figure.3}%
-\contentsline {figure}{\numberline {4}{\ignorespaces Training loss curve over the 1-epoch fine-tuning run. The loss fluctuates over the steps but maintains an overall downward trend, indicating effective learning and adaptation to the domain.}}{10}{figure.4}%
-\contentsline {figure}{\numberline {5}{\ignorespaces The llama.cpp conversion and quantization process log (part 1).}}{12}{figure.5}%
-\contentsline {figure}{\numberline {6}{\ignorespaces The llama.cpp conversion and quantization process log (part 2).}}{13}{figure.6}%
-\contentsline {figure}{\numberline {7}{\ignorespaces The llama.cpp conversion and quantization process log (part 3).}}{14}{figure.7}%
-\contentsline {figure}{\numberline {8}{\ignorespaces Gemma model repository on Hugging Face.}}{15}{figure.8}%
-\contentsline {figure}{\numberline {9}{\ignorespaces GPT-2 Small model repository on Hugging Face.}}{15}{figure.9}%
-\contentsline {figure}{\numberline {10}{\ignorespaces Adapter weights repository on Hugging Face.}}{15}{figure.10}%
-\contentsline {figure}{\numberline {11}{\ignorespaces Comparison of generated stories for Age 3-4 vs Age 11-12 from the same prompt.}}{17}{figure.11}%
+\contentsline {figure}{\numberline {3}{\ignorespaces a bit of details about the gemma 4 family for more details visit : \url {https://huggingface.co/google/gemma-4-E2B-it}}}{8}{figure.3}%
+\contentsline {figure}{\numberline {4}{\ignorespaces An example sample of the dataset (formatted in prompt-text(generated story) pairs)}}{10}{figure.4}%
+\contentsline {figure}{\numberline {5}{\ignorespaces Distribution of story lengths and age-level categories in the training sample.}}{11}{figure.5}%
+\contentsline {figure}{\numberline {6}{\ignorespaces Training loss curve over the 1-epoch fine-tuning run. The loss fluctuates over the steps but maintains an overall downward trend, indicating effective learning and adaptation to the domain.}}{13}{figure.6}%
+\contentsline {figure}{\numberline {7}{\ignorespaces The llama.cpp conversion and quantization process log (part 1).}}{15}{figure.7}%
+\contentsline {figure}{\numberline {8}{\ignorespaces The llama.cpp conversion and quantization process log (part 2).}}{16}{figure.8}%
+\contentsline {figure}{\numberline {9}{\ignorespaces The llama.cpp conversion and quantization process log (part 3).}}{17}{figure.9}%
+\contentsline {figure}{\numberline {10}{\ignorespaces Gemma model repository on Hugging Face.}}{17}{figure.10}%
+\contentsline {figure}{\numberline {11}{\ignorespaces GPT-2 Small model repository on Hugging Face.}}{18}{figure.11}%
+\contentsline {figure}{\numberline {12}{\ignorespaces Adapter weights repository on Hugging Face.}}{18}{figure.12}%
+\contentsline {figure}{\numberline {13}{\ignorespaces Age 3-4 generation from the prompt (Part 1).}}{19}{figure.13}%
+\contentsline {figure}{\numberline {14}{\ignorespaces Age 3-4 generation from the prompt (Part 2).}}{20}{figure.14}%
+\contentsline {figure}{\numberline {15}{\ignorespaces Age 11-12 generation from the same prompt.}}{21}{figure.15}%

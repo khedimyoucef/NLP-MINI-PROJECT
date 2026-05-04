@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.5.2)  4 MAY 2026 18:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.5.2)  4 MAY 2026 20:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -868,7 +868,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.22 ...ison with Base Models}{18}{subsection.7.2}
+l.22 ...ison with Base Models}{21}{subsection.7.2}
                                                   % [1])
 \tf@toc=\write5
 \openout5 = `main.toc'.
@@ -887,7 +887,7 @@ LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <18> not available
 LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <18> not available
 (Font)              size <17.28> substituted on input line 184.
 
-<pics/EndToEndLLMfinetuning.png, id=197, 1413.28pt x 770.88pt>
+<pics/EndToEndLLMfinetuning.png, id=209, 1413.28pt x 770.88pt>
 File: pics/EndToEndLLMfinetuning.png Graphic file (type png)
 <use pics/EndToEndLLMfinetuning.png>
 Package pdftex.def Info: pics/EndToEndLLMfinetuning.png  used on input line 198
@@ -900,10 +900,10 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.203 \clearpage
                  <./pics/EndToEndLLMfinetuning.png>]
-<pics/LoRAarch.png, id=210, 1413.28pt x 770.88pt>
+<pics/LoRAarch.png, id=221, 1413.28pt x 770.88pt>
 File: pics/LoRAarch.png Graphic file (type png)
 <use pics/LoRAarch.png>
-Package pdftex.def Info: pics/LoRAarch.png  used on input line 217.
+Package pdftex.def Info: pics/LoRAarch.png  used on input line 216.
 (pdftex.def)             Requested size: 377.62642pt x 205.97604pt.
  [6
 
@@ -912,210 +912,246 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.222 \clearpage
-                 <./pics/LoRAarch.png>] [7
+l.221 \clearpage
+                 <./pics/LoRAarch.png>]
+<pics/gemma4famillySpecs.png, id=228, 761.84625pt x 719.68875pt>
+File: pics/gemma4famillySpecs.png Graphic file (type png)
+<use pics/gemma4famillySpecs.png>
+Package pdftex.def Info: pics/gemma4famillySpecs.png  used on input line 239.
+(pdftex.def)             Requested size: 377.62642pt x 356.72473pt.
+ [7
 
-]
-<pics/DatasetPlots.png, id=221, 970.5861pt x 380.1402pt>
-File: pics/DatasetPlots.png Graphic file (type png)
-<use pics/DatasetPlots.png>
-Package pdftex.def Info: pics/DatasetPlots.png  used on input line 267.
-(pdftex.def)             Requested size: 377.62642pt x 147.90024pt.
- [8
-
-
+] [8
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.272 \clearpage
+l.252     \item \textbf
+                       {Gemma 4 E4B-IT (\textasciitilde 4B parameters):} A s...
+ <./pics/gemma4famillySpecs.png (PNG copy)>] [9]
+<pics/datasetSampleExample.png, id=244, 1336.995pt x 750.805pt>
+File: pics/datasetSampleExample.png Graphic file (type png)
+<use pics/datasetSampleExample.png>
+Package pdftex.def Info: pics/datasetSampleExample.png  used on input line 276.
+
+(pdftex.def)             Requested size: 472.03123pt x 265.07695pt.
+ [10
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.284 
+       <./pics/datasetSampleExample.png (PNG copy)>]
+<pics/DatasetPlots.png, id=256, 970.5861pt x 380.1402pt>
+File: pics/DatasetPlots.png Graphic file (type png)
+<use pics/DatasetPlots.png>
+Package pdftex.def Info: pics/DatasetPlots.png  used on input line 287.
+(pdftex.def)             Requested size: 377.62642pt x 147.90024pt.
+ [11
+pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.292 \clearpage
                  <./pics/DatasetPlots.png>]
 \g__tcobox_out_iow=\write7
 \openout7 = `main.listing'.
 
  (./main.listing)
-<pics/LossPlot.png, id=234, 462.528pt x 346.896pt>
+<pics/LossPlot.png, id=262, 462.528pt x 346.896pt>
 File: pics/LossPlot.png Graphic file (type png)
 <use pics/LossPlot.png>
-Package pdftex.def Info: pics/LossPlot.png  used on input line 304.
+Package pdftex.def Info: pics/LossPlot.png  used on input line 323.
 (pdftex.def)             Requested size: 472.03123pt x 354.04095pt.
- [9
-
-] [10
-pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.309 \clearpage
-                 <./pics/LossPlot.png>]
-<pics/stage1log.png, id=258, 558.085pt x 205.76875pt>
-File: pics/stage1log.png Graphic file (type png)
-<use pics/stage1log.png>
-Package pdftex.def Info: pics/stage1log.png  used on input line 324.
-(pdftex.def)             Requested size: 401.22942pt x 147.93987pt.
-<pics/stage2log.png, id=259, 574.145pt x 426.59375pt>
-File: pics/stage2log.png Graphic file (type png)
-<use pics/stage2log.png>
-Package pdftex.def Info: pics/stage2log.png  used on input line 325.
-(pdftex.def)             Requested size: 401.22942pt x 298.12538pt.
- [11
-
-]
-<pics/stage3-1log.png, id=264, 626.34pt x 566.115pt>
-File: pics/stage3-1log.png Graphic file (type png)
-<use pics/stage3-1log.png>
-Package pdftex.def Info: pics/stage3-1log.png  used on input line 332.
-(pdftex.def)             Requested size: 401.22942pt x 362.65788pt.
-<pics/stage3-2log.png, id=265, 814.04124pt x 337.26pt>
-File: pics/stage3-2log.png Graphic file (type png)
-<use pics/stage3-2log.png>
-Package pdftex.def Info: pics/stage3-2log.png  used on input line 333.
-(pdftex.def)             Requested size: 401.22942pt x 166.23146pt.
  [12
-pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
-s been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  \__shipout_drop_firstpage_...
-l.337 
-       <./pics/stage1log.png (PNG copy)> <./pics/stage2log.png (PNG copy)>]
-<pics/stage3-4log.png, id=271, 580.1675pt x 93.34875pt>
-File: pics/stage3-4log.png Graphic file (type png)
-<use pics/stage3-4log.png>
-Package pdftex.def Info: pics/stage3-4log.png  used on input line 340.
-(pdftex.def)             Requested size: 401.22942pt x 64.5574pt.
-<pics/stage3-5log.png, id=272, 599.23875pt x 127.47626pt>
-File: pics/stage3-5log.png Graphic file (type png)
-<use pics/stage3-5log.png>
-Package pdftex.def Info: pics/stage3-5log.png  used on input line 341.
-(pdftex.def)             Requested size: 401.22942pt x 85.35612pt.
-<pics/stage4log.png, id=273, 676.5275pt x 270.00874pt>
-File: pics/stage4log.png Graphic file (type png)
-<use pics/stage4log.png>
-Package pdftex.def Info: pics/stage4log.png  used on input line 342.
-(pdftex.def)             Requested size: 401.22942pt x 160.14012pt.
 
-[13
+] [13
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.346 
-       <./pics/stage3-1log.png (PNG copy)> <./pics/stage3-2log.png (PNG copy)>]
-<pics/gemma2HF.png, id=281, 1616.0375pt x 444.66125pt>
+l.328 \clearpage
+                 <./pics/LossPlot.png>]
+<pics/stage1log.png, id=287, 558.085pt x 205.76875pt>
+File: pics/stage1log.png Graphic file (type png)
+<use pics/stage1log.png>
+Package pdftex.def Info: pics/stage1log.png  used on input line 342.
+(pdftex.def)             Requested size: 401.22942pt x 147.93987pt.
+<pics/stage2log.png, id=288, 574.145pt x 426.59375pt>
+File: pics/stage2log.png Graphic file (type png)
+<use pics/stage2log.png>
+Package pdftex.def Info: pics/stage2log.png  used on input line 343.
+(pdftex.def)             Requested size: 401.22942pt x 298.12538pt.
+<pics/stage3-1log.png, id=289, 626.34pt x 566.115pt>
+File: pics/stage3-1log.png Graphic file (type png)
+<use pics/stage3-1log.png>
+Package pdftex.def Info: pics/stage3-1log.png  used on input line 350.
+(pdftex.def)             Requested size: 401.22942pt x 362.65788pt.
+<pics/stage3-2log.png, id=290, 814.04124pt x 337.26pt>
+File: pics/stage3-2log.png Graphic file (type png)
+<use pics/stage3-2log.png>
+Package pdftex.def Info: pics/stage3-2log.png  used on input line 351.
+(pdftex.def)             Requested size: 401.22942pt x 166.23146pt.
+<pics/stage3-4log.png, id=291, 580.1675pt x 93.34875pt>
+File: pics/stage3-4log.png Graphic file (type png)
+<use pics/stage3-4log.png>
+Package pdftex.def Info: pics/stage3-4log.png  used on input line 358.
+(pdftex.def)             Requested size: 401.22942pt x 64.5574pt.
+<pics/stage3-5log.png, id=292, 599.23875pt x 127.47626pt>
+File: pics/stage3-5log.png Graphic file (type png)
+<use pics/stage3-5log.png>
+Package pdftex.def Info: pics/stage3-5log.png  used on input line 359.
+(pdftex.def)             Requested size: 401.22942pt x 85.35612pt.
+<pics/stage4log.png, id=293, 676.5275pt x 270.00874pt>
+File: pics/stage4log.png Graphic file (type png)
+<use pics/stage4log.png>
+Package pdftex.def Info: pics/stage4log.png  used on input line 360.
+(pdftex.def)             Requested size: 401.22942pt x 160.14012pt.
+<pics/gemma2HF.png, id=297, 1616.0375pt x 444.66125pt>
 File: pics/gemma2HF.png Graphic file (type png)
 <use pics/gemma2HF.png>
-Package pdftex.def Info: pics/gemma2HF.png  used on input line 359.
-(pdftex.def)             Requested size: 283.22162pt x 77.92543pt.
-[14
+Package pdftex.def Info: pics/gemma2HF.png  used on input line 377.
+(pdftex.def)             Requested size: 472.03123pt x 129.87799pt.
+<pics/gpt2-smallHF.png, id=298, 1637.11626pt x 703.62875pt>
+File: pics/gpt2-smallHF.png Graphic file (type png)
+<use pics/gpt2-smallHF.png>
+Package pdftex.def Info: pics/gpt2-smallHF.png  used on input line 383.
+(pdftex.def)             Requested size: 472.03123pt x 202.87683pt.
+<pics/adapterWeightsHF.png, id=299, 1606.0pt x 788.9475pt>
+File: pics/adapterWeightsHF.png Graphic file (type png)
+<use pics/adapterWeightsHF.png>
+Package pdftex.def Info: pics/adapterWeightsHF.png  used on input line 389.
+(pdftex.def)             Requested size: 472.03123pt x 231.88277pt.
+ [14
+
+] [15
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.362 
-       <./pics/stage3-4log.png (PNG copy)> <./pics/stage3-5log.png (PNG copy)> 
-<./pics/stage4log.png (PNG copy)>]
-<pics/gpt2-smallHF.png, id=286, 1637.11626pt x 703.62875pt>
-File: pics/gpt2-smallHF.png Graphic file (type png)
-<use pics/gpt2-smallHF.png>
-Package pdftex.def Info: pics/gpt2-smallHF.png  used on input line 365.
-(pdftex.def)             Requested size: 283.22162pt x 121.71965pt.
-<pics/adapterWeightsHF.png, id=287, 1606.0pt x 788.9475pt>
-File: pics/adapterWeightsHF.png Graphic file (type png)
-<use pics/adapterWeightsHF.png>
-Package pdftex.def Info: pics/adapterWeightsHF.png  used on input line 371.
-(pdftex.def)             Requested size: 283.22162pt x 139.12724pt.
- [15
+l.393 \clearpage
+                 <./pics/stage1log.png (PNG copy)> <./pics/stage2log.png (PNG c
+opy)>] [16
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.375 \clearpage
-                
+l.393 \clearpage
+                 <./pics/stage3-1log.png (PNG copy)> <./pics/stage3-2log.png (P
+NG copy)>] [17
 pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.375 \clearpage
+l.393 \clearpage
                 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.375 \clearpage
-                 <./pics/gemma2HF.png (PNG copy)> <./pics/gpt2-smallHF.png (PNG
- copy)> <./pics/adapterWeightsHF.png (PNG copy)>]
-<pics/GemmaE2Btest11.png, id=292, 999.735pt x 879.285pt>
-File: pics/GemmaE2Btest11.png Graphic file (type png)
-<use pics/GemmaE2Btest11.png>
-Package pdftex.def Info: pics/GemmaE2Btest11.png  used on input line 389.
-(pdftex.def)             Requested size: 424.82523pt x 373.64423pt.
-<pics/GemmaE2Btest12.png, id=293, 468.75125pt x 992.70876pt>
-File: pics/GemmaE2Btest12.png Graphic file (type png)
-<use pics/GemmaE2Btest12.png>
-Package pdftex.def Info: pics/GemmaE2Btest12.png  used on input line 390.
-(pdftex.def)             Requested size: 424.82523pt x 899.67041pt.
-<pics/GemmaE2Btest2.png, id=294, 971.63pt x 841.1425pt>
-File: pics/GemmaE2Btest2.png Graphic file (type png)
-<use pics/GemmaE2Btest2.png>
-Package pdftex.def Info: pics/GemmaE2Btest2.png  used on input line 394.
-(pdftex.def)             Requested size: 424.82523pt x 367.76791pt.
- [16
-
-]
-Overfull \vbox (1054.10689pt too high) has occurred while \output is active []
-
-
-[17
+l.393 \clearpage
+                 <./pics/stage3-4log.png (PNG copy)> <./pics/stage3-5log.png (P
+NG copy)> <./pics/stage4log.png (PNG copy)> <./pics/gemma2HF.png (PNG copy)>]
+[18
 pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) h
 as been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.399 
-       <./pics/GemmaE2Btest11.png (PNG copy)> <./pics/GemmaE2Btest12.png (PNG c
-opy)> <./pics/GemmaE2Btest2.png (PNG copy)>] [18] [19
+l.393 \clearpage
+                
+pdfTeX warning (ext4): destination with the same identifier (name{figure.12}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.393 \clearpage
+                 <./pics/gpt2-smallHF.png (PNG copy)> <./pics/adapterWeightsHF.
+png (PNG copy)>]
+<pics/GemmaE2Btest11.png, id=322, 999.735pt x 879.285pt>
+File: pics/GemmaE2Btest11.png Graphic file (type png)
+<use pics/GemmaE2Btest11.png>
+Package pdftex.def Info: pics/GemmaE2Btest11.png  used on input line 406.
+(pdftex.def)             Requested size: 472.02643pt x 415.15578pt.
+ [19
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.13}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.411 \clearpage
+                 <./pics/GemmaE2Btest11.png (PNG copy)>]
+<pics/GemmaE2Btest12.png, id=328, 468.75125pt x 992.70876pt>
+File: pics/GemmaE2Btest12.png Graphic file (type png)
+<use pics/GemmaE2Btest12.png>
+Package pdftex.def Info: pics/GemmaE2Btest12.png  used on input line 416.
+(pdftex.def)             Requested size: 231.15639pt x 489.53679pt.
+ [20
+pdfTeX warning (ext4): destination with the same identifier (name{figure.14}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.421 \clearpage
+                 <./pics/GemmaE2Btest12.png (PNG copy)>]
+<pics/GemmaE2Btest2.png, id=333, 971.63pt x 841.1425pt>
+File: pics/GemmaE2Btest2.png Graphic file (type png)
+<use pics/GemmaE2Btest2.png>
+Package pdftex.def Info: pics/GemmaE2Btest2.png  used on input line 426.
+(pdftex.def)             Requested size: 472.02576pt x 408.63387pt.
+ [21
+
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.15}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.436 \clearpage
+                 <./pics/GemmaE2Btest2.png (PNG copy)>] [22] [23
 
 ]
-<pics/tech/pytorch.png, id=314, 213.79875pt x 237.88875pt>
+<pics/tech/pytorch.png, id=346, 213.79875pt x 237.88875pt>
 File: pics/tech/pytorch.png Graphic file (type png)
 <use pics/tech/pytorch.png>
-Package pdftex.def Info: pics/tech/pytorch.png  used on input line 424.
+Package pdftex.def Info: pics/tech/pytorch.png  used on input line 453.
 (pdftex.def)             Requested size: 56.64165pt x 63.02206pt.
-<pics/tech/hugging_face.jpg, id=315, 903.375pt x 903.375pt>
+<pics/tech/hugging_face.jpg, id=347, 903.375pt x 903.375pt>
 File: pics/tech/hugging_face.jpg Graphic file (type jpg)
 <use pics/tech/hugging_face.jpg>
-Package pdftex.def Info: pics/tech/hugging_face.jpg  used on input line 434.
+Package pdftex.def Info: pics/tech/hugging_face.jpg  used on input line 463.
 (pdftex.def)             Requested size: 56.64165pt x 56.63998pt.
-<pics/tech/llama.png, id=316, 129.48375pt x 137.51375pt>
+<pics/tech/llama.png, id=348, 129.48375pt x 137.51375pt>
 File: pics/tech/llama.png Graphic file (type png)
 <use pics/tech/llama.png>
-Package pdftex.def Info: pics/tech/llama.png  used on input line 444.
+Package pdftex.def Info: pics/tech/llama.png  used on input line 473.
 (pdftex.def)             Requested size: 56.64165pt x 60.15372pt.
-<pics/tech/kaggle.png, id=317, 362.35374pt x 140.525pt>
+<pics/tech/kaggle.png, id=349, 362.35374pt x 140.525pt>
 File: pics/tech/kaggle.png Graphic file (type png)
 <use pics/tech/kaggle.png>
-Package pdftex.def Info: pics/tech/kaggle.png  used on input line 454.
+Package pdftex.def Info: pics/tech/kaggle.png  used on input line 483.
 (pdftex.def)             Requested size: 56.64165pt x 21.96555pt.
-<pics/tech/fastapi.png, id=318, 281.05pt x 281.05pt>
+<pics/tech/fastapi.png, id=350, 281.05pt x 281.05pt>
 File: pics/tech/fastapi.png Graphic file (type png)
 <use pics/tech/fastapi.png>
-Package pdftex.def Info: pics/tech/fastapi.png  used on input line 464.
+Package pdftex.def Info: pics/tech/fastapi.png  used on input line 493.
 (pdftex.def)             Requested size: 56.64165pt x 56.63785pt.
-<pics/tech/react.png, id=319, 235.88126pt x 214.8025pt>
+<pics/tech/react.png, id=351, 235.88126pt x 214.8025pt>
 File: pics/tech/react.png Graphic file (type png)
 <use pics/tech/react.png>
-Package pdftex.def Info: pics/tech/react.png  used on input line 474.
+Package pdftex.def Info: pics/tech/react.png  used on input line 503.
 (pdftex.def)             Requested size: 56.64165pt x 51.57986pt.
-<pics/tech/docker.png, id=320, 256.96pt x 256.96pt>
+<pics/tech/docker.png, id=352, 256.96pt x 256.96pt>
 File: pics/tech/docker.png Graphic file (type png)
 <use pics/tech/docker.png>
-Package pdftex.def Info: pics/tech/docker.png  used on input line 484.
+Package pdftex.def Info: pics/tech/docker.png  used on input line 513.
 (pdftex.def)             Requested size: 56.64165pt x 56.64114pt.
-<pics/tech/github.png, id=321, 642.4pt x 642.4pt>
+<pics/tech/github.png, id=353, 642.4pt x 642.4pt>
 File: pics/tech/github.png Graphic file (type png)
 <use pics/tech/github.png>
-Package pdftex.def Info: pics/tech/github.png  used on input line 494.
+Package pdftex.def Info: pics/tech/github.png  used on input line 523.
 (pdftex.def)             Requested size: 56.64165pt x 56.63724pt.
- [20
+ [24
 
  <./pics/tech/pytorch.png> <./pics/tech/hugging_face.jpg> <./pics/tech/llama.pn
 g (PNG copy)> <./pics/tech/kaggle.png> <./pics/tech/fastapi.png> <./pics/tech/r
@@ -1132,9 +1168,16 @@ eact.png> <./pics/tech/docker.png (PNG copy)> <./pics/tech/github.png>]
  (./main.listing)
 \openout7 = `main.listing'.
 
- (./main.listing) [21
+ (./main.listing) [25
 
-] [22] (./main.aux)
+]
+\openout7 = `main.listing'.
+
+ (./main.listing)
+\openout7 = `main.listing'.
+
+
+(./main.listing) [26] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1148,11 +1191,11 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 76FCC2FD208590CEAFC15E267D40DD17;5595.
  ) 
 Here is how much of TeX's memory you used:
- 29056 strings out of 469515
- 560671 string characters out of 5470808
- 1078333 words of memory out of 5000000
- 57075 multiletter control sequences out of 15000+600000
- 647728 words of font info for 125 fonts, out of 8000000 for 9000
+ 29113 strings out of 469515
+ 561680 string characters out of 5470808
+ 1084677 words of memory out of 5000000
+ 57094 multiletter control sequences out of 15000+600000
+ 648276 words of font info for 134 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  98i,12n,108p,1001b,1481s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/t
@@ -1165,10 +1208,10 @@ onts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf-dist/fonts/type1/publ
 ic/cm-super/sftt0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sft
 t0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr
 /share/texmf-dist/fonts/type1/public/cm-super/sftt1728.pfb>
-Output written on main.pdf (23 pages, 5185742 bytes).
+Output written on main.pdf (27 pages, 5730523 bytes).
 PDF statistics:
- 433 PDF objects out of 1000 (max. 8388607)
- 345 compressed objects within 4 object streams
- 96 named destinations out of 1000 (max. 500000)
- 49514 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 478 PDF objects out of 1000 (max. 8388607)
+ 383 compressed objects within 4 object streams
+ 112 named destinations out of 1000 (max. 500000)
+ 49524 words of extra memory for PDF output out of 51595 (max. 10000000)
 

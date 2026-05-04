@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.5.2)  4 MAY 2026 17:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.5.2)  4 MAY 2026 18:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -706,24 +706,24 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 114.
-LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 113.
+LaTeX Font Info:    ... okay on input line 113.
  (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count346
@@ -780,21 +780,21 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 114.
+Package hyperref Info: Link coloring ON on input line 113.
 (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 114.
-Package microtype Info: Applying patch `item' on input line 114.
-Package microtype Info: Applying patch `toc' on input line 114.
-Package microtype Info: Applying patch `eqnum' on input line 114.
+LaTeX Info: Redefining \microtypecontext on input line 113.
+Package microtype Info: Applying patch `item' on input line 113.
+Package microtype Info: Applying patch `toc' on input line 113.
+Package microtype Info: Applying patch `eqnum' on input line 113.
 
 
-Package microtype Warning: Unable to apply patch `footnote' on input line 114.
+Package microtype Warning: Unable to apply patch `footnote' on input line 113.
 
-Package microtype Info: Applying patch `verbatim' on input line 114.
-LaTeX Info: Redefining \microtypesetup on input line 114.
+Package microtype Info: Applying patch `verbatim' on input line 113.
+LaTeX Info: Redefining \microtypesetup on input line 113.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -813,27 +813,50 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <40> not available
-(Font)              size <35.83> substituted on input line 126.
+(Font)              size <35.83> substituted on input line 125.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <40> not available
-(Font)              size <35.83> substituted on input line 126.
+(Font)              size <35.83> substituted on input line 125.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <19> not available
-(Font)              size <17.28> substituted on input line 142.
+(Font)              size <17.28> substituted on input line 141.
 
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `cmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Calculating math sizes for size <17> on input line 156.
+
+LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 156.
+
+
+LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <8.5> not available
+(Font)              size <8> substituted on input line 156.
+
+
+LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <8.5> not available
+(Font)              size <8> substituted on input line 156.
+
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <17> on input line 156.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <11.89995> on input line 156.
+LaTeX Font Info:    External font `cmex10' loaded for size
+(Font)              <8.5> on input line 156.
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf-dist/fonts
 /enc/dvips/cm-super/cm-super-t1.enc}]
 
 LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 173.
+(Font)              size <20.74> substituted on input line 172.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 173.
+(Font)              size <20.74> substituted on input line 172.
 
 (./main.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -858,20 +881,16 @@ l.22 ...rline {9}Technologies Used}{18}{section.9}
 [3]
 
 LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 185.
+(Font)              size <17.28> substituted on input line 184.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 185.
+(Font)              size <17.28> substituted on input line 184.
 
-Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `cmtt' (encoding: T1).
-(microtype)             For optimal results, create family-specific settings.
-(microtype)             See the microtype manual for details.
-<pics/EndToEndLLMfinetuning.png, id=177, 1413.28pt x 770.88pt>
+<pics/EndToEndLLMfinetuning.png, id=180, 1413.28pt x 770.88pt>
 File: pics/EndToEndLLMfinetuning.png Graphic file (type png)
 <use pics/EndToEndLLMfinetuning.png>
-Package pdftex.def Info: pics/EndToEndLLMfinetuning.png  used on input line 199
+Package pdftex.def Info: pics/EndToEndLLMfinetuning.png  used on input line 198
 .
 (pdftex.def)             Requested size: 472.03123pt x 257.473pt.
 [4{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [5
@@ -879,12 +898,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.204 \clearpage
+l.203 \clearpage
                  <./pics/EndToEndLLMfinetuning.png>]
-<pics/LoRAarch.png, id=191, 1413.28pt x 770.88pt>
+<pics/LoRAarch.png, id=193, 1413.28pt x 770.88pt>
 File: pics/LoRAarch.png Graphic file (type png)
 <use pics/LoRAarch.png>
-Package pdftex.def Info: pics/LoRAarch.png  used on input line 218.
+Package pdftex.def Info: pics/LoRAarch.png  used on input line 217.
 (pdftex.def)             Requested size: 377.62642pt x 205.97604pt.
  [6
 
@@ -893,14 +912,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.223 \clearpage
+l.222 \clearpage
                  <./pics/LoRAarch.png>] [7
 
 ]
-<pics/DatasetPlots.png, id=202, 970.5861pt x 380.1402pt>
+<pics/DatasetPlots.png, id=205, 970.5861pt x 380.1402pt>
 File: pics/DatasetPlots.png Graphic file (type png)
 <use pics/DatasetPlots.png>
-Package pdftex.def Info: pics/DatasetPlots.png  used on input line 264.
+Package pdftex.def Info: pics/DatasetPlots.png  used on input line 267.
 (pdftex.def)             Requested size: 377.62642pt x 147.90024pt.
  [8
 
@@ -909,22 +928,18 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.269 \clearpage
+l.272 \clearpage
                  <./pics/DatasetPlots.png>]
 \g__tcobox_out_iow=\write7
 \openout7 = `main.listing'.
 
-
-(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-) (./main.listing)
-<pics/LossPlot.png, id=215, 462.528pt x 346.896pt>
+ (./main.listing)
+<pics/LossPlot.png, id=218, 462.528pt x 346.896pt>
 File: pics/LossPlot.png Graphic file (type png)
 <use pics/LossPlot.png>
-Package pdftex.def Info: pics/LossPlot.png  used on input line 301.
+Package pdftex.def Info: pics/LossPlot.png  used on input line 304.
 (pdftex.def)             Requested size: 472.03123pt x 354.04095pt.
-
-[9
+ [9
 
 ] [10
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
@@ -933,50 +948,50 @@ s been already used, duplicate ignored
                                                   \__shipout_drop_firstpage_...
 l.309 \clearpage
                  <./pics/LossPlot.png>]
-<pics/stage1log.png, id=239, 558.085pt x 205.76875pt>
+<pics/stage1log.png, id=242, 558.085pt x 205.76875pt>
 File: pics/stage1log.png Graphic file (type png)
 <use pics/stage1log.png>
-Package pdftex.def Info: pics/stage1log.png  used on input line 325.
+Package pdftex.def Info: pics/stage1log.png  used on input line 324.
 (pdftex.def)             Requested size: 401.22942pt x 147.93987pt.
-<pics/stage2log.png, id=240, 574.145pt x 426.59375pt>
+<pics/stage2log.png, id=243, 574.145pt x 426.59375pt>
 File: pics/stage2log.png Graphic file (type png)
 <use pics/stage2log.png>
-Package pdftex.def Info: pics/stage2log.png  used on input line 326.
+Package pdftex.def Info: pics/stage2log.png  used on input line 325.
 (pdftex.def)             Requested size: 401.22942pt x 298.12538pt.
  [11
 
 ]
-<pics/stage3-1log.png, id=245, 626.34pt x 566.115pt>
+<pics/stage3-1log.png, id=248, 626.34pt x 566.115pt>
 File: pics/stage3-1log.png Graphic file (type png)
 <use pics/stage3-1log.png>
-Package pdftex.def Info: pics/stage3-1log.png  used on input line 333.
+Package pdftex.def Info: pics/stage3-1log.png  used on input line 332.
 (pdftex.def)             Requested size: 401.22942pt x 362.65788pt.
-<pics/stage3-2log.png, id=246, 814.04124pt x 337.26pt>
+<pics/stage3-2log.png, id=249, 814.04124pt x 337.26pt>
 File: pics/stage3-2log.png Graphic file (type png)
 <use pics/stage3-2log.png>
-Package pdftex.def Info: pics/stage3-2log.png  used on input line 334.
+Package pdftex.def Info: pics/stage3-2log.png  used on input line 333.
 (pdftex.def)             Requested size: 401.22942pt x 166.23146pt.
  [12
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.338 
+l.337 
        <./pics/stage1log.png (PNG copy)> <./pics/stage2log.png (PNG copy)>]
-<pics/stage3-4log.png, id=252, 580.1675pt x 93.34875pt>
+<pics/stage3-4log.png, id=255, 580.1675pt x 93.34875pt>
 File: pics/stage3-4log.png Graphic file (type png)
 <use pics/stage3-4log.png>
-Package pdftex.def Info: pics/stage3-4log.png  used on input line 341.
+Package pdftex.def Info: pics/stage3-4log.png  used on input line 340.
 (pdftex.def)             Requested size: 401.22942pt x 64.5574pt.
-<pics/stage3-5log.png, id=253, 599.23875pt x 127.47626pt>
+<pics/stage3-5log.png, id=256, 599.23875pt x 127.47626pt>
 File: pics/stage3-5log.png Graphic file (type png)
 <use pics/stage3-5log.png>
-Package pdftex.def Info: pics/stage3-5log.png  used on input line 342.
+Package pdftex.def Info: pics/stage3-5log.png  used on input line 341.
 (pdftex.def)             Requested size: 401.22942pt x 85.35612pt.
-<pics/stage4log.png, id=254, 676.5275pt x 270.00874pt>
+<pics/stage4log.png, id=257, 676.5275pt x 270.00874pt>
 File: pics/stage4log.png Graphic file (type png)
 <use pics/stage4log.png>
-Package pdftex.def Info: pics/stage4log.png  used on input line 343.
+Package pdftex.def Info: pics/stage4log.png  used on input line 342.
 (pdftex.def)             Requested size: 401.22942pt x 160.14012pt.
 
 [13
@@ -984,62 +999,216 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.347 t
-       he final GGUF file was then downloaded and tested on a local machine ...
- <./pics/stage3-1log.png (PNG copy)> <./pics/stage3-2log.png (PNG copy)>]
-<pics/gemma2HF.png, id=259, 1616.0375pt x 444.66125pt>
+l.346 
+       <./pics/stage3-1log.png (PNG copy)> <./pics/stage3-2log.png (PNG copy)>]
+<pics/gemma2HF.png, id=265, 1616.0375pt x 444.66125pt>
 File: pics/gemma2HF.png Graphic file (type png)
 <use pics/gemma2HF.png>
-Package pdftex.def Info: pics/gemma2HF.png  used on input line 351.
-(pdftex.def)             Requested size: 401.22942pt x 110.39833pt.
-
-Overfull \hbox (269.77446pt too wide) in paragraph at lines 350--353
-\T1/cmr/m/n/10 (-20) :https://huggingface.co/khedim/NLP-MINI-PROJECT/tree/main/
-gemma-e2b []
- []
-
-<pics/gpt2-smallHF.png, id=260, 1637.11626pt x 703.62875pt>
-File: pics/gpt2-smallHF.png Graphic file (type png)
-<use pics/gpt2-smallHF.png>
-Package pdftex.def Info: pics/gpt2-smallHF.png  used on input line 354.
-(pdftex.def)             Requested size: 401.22942pt x 172.43886pt.
-<pics/adapterWeightsHF.png, id=261, 1606.0pt x 788.9475pt>
-File: pics/adapterWeightsHF.png Graphic file (type png)
-<use pics/adapterWeightsHF.png>
-Package pdftex.def Info: pics/adapterWeightsHF.png  used on input line 356.
-(pdftex.def)             Requested size: 401.22942pt x 197.10396pt.
-
-Overfull \hbox (11.03264pt too wide) in paragraph at lines 354--357
-[][] \T1/cmr/m/n/10 (-20) and the stan-dalone
- []
-
-
-Overfull \hbox (61.83136pt too wide) in paragraph at lines 354--357
-\T1/cmr/m/n/10 (-20) PROJECT-adapter/tree/main [] 
- []
-
+Package pdftex.def Info: pics/gemma2HF.png  used on input line 359.
+(pdftex.def)             Requested size: 283.22162pt x 77.92543pt.
 [14
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.357 \clearpage
-                 <./pics/stage3-4log.png (PNG copy)> <./pics/stage3-5log.png (P
-NG copy)> <./pics/stage4log.png (PNG copy)> <./pics/gemma2HF.png (PNG copy)>]
-[15 <./pics/gpt2-smallHF.png (PNG copy)> <./pics/adapterWeightsHF.png (PNG copy
-)>] [16
-
-
+l.362 
+       <./pics/stage3-4log.png (PNG copy)> <./pics/stage3-5log.png (PNG copy)> 
+<./pics/stage4log.png (PNG copy)>]
+<pics/gpt2-smallHF.png, id=270, 1637.11626pt x 703.62875pt>
+File: pics/gpt2-smallHF.png Graphic file (type png)
+<use pics/gpt2-smallHF.png>
+Package pdftex.def Info: pics/gpt2-smallHF.png  used on input line 365.
+(pdftex.def)             Requested size: 283.22162pt x 121.71965pt.
+<pics/adapterWeightsHF.png, id=271, 1606.0pt x 788.9475pt>
+File: pics/adapterWeightsHF.png Graphic file (type png)
+<use pics/adapterWeightsHF.png>
+Package pdftex.def Info: pics/adapterWeightsHF.png  used on input line 371.
+(pdftex.def)             Requested size: 283.22162pt x 139.12724pt.
+ [15
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.373 \clearpage
-                ] [17
+l.375 \clearpage
+                
+pdfTeX warning (ext4): destination with the same identifier (name{figure.9}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.375 \clearpage
+                
+pdfTeX warning (ext4): destination with the same identifier (name{figure.10}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.375 \clearpage
+                 <./pics/gemma2HF.png (PNG copy)> <./pics/gpt2-smallHF.png (PNG
+ copy)> <./pics/adapterWeightsHF.png (PNG copy)>]
+<pics/GemmaE2Btest11.png, id=278, 999.735pt x 879.285pt>
+File: pics/GemmaE2Btest11.png Graphic file (type png)
+<use pics/GemmaE2Btest11.png>
+Package pdftex.def Info: pics/GemmaE2Btest11.png  used on input line 389.
+(pdftex.def)             Requested size: 424.82523pt x 373.64423pt.
+<pics/GemmaE2Btest12.png, id=279, 468.75125pt x 992.70876pt>
+File: pics/GemmaE2Btest12.png Graphic file (type png)
+<use pics/GemmaE2Btest12.png>
+Package pdftex.def Info: pics/GemmaE2Btest12.png  used on input line 390.
+(pdftex.def)             Requested size: 424.82523pt x 899.67041pt.
+<pics/GemmaE2Btest2.png, id=280, 971.63pt x 841.1425pt>
+File: pics/GemmaE2Btest2.png Graphic file (type png)
+<use pics/GemmaE2Btest2.png>
+Package pdftex.def Info: pics/GemmaE2Btest2.png  used on input line 394.
+(pdftex.def)             Requested size: 424.82523pt x 367.76791pt.
+ [16
 
-] [18
+]
+Overfull \vbox (1054.10689pt too high) has occurred while \output is active []
 
-] (./main.aux)
+
+[17
+pdfTeX warning (ext4): destination with the same identifier (name{figure.11}) h
+as been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.399 
+       <./pics/GemmaE2Btest11.png (PNG copy)> <./pics/GemmaE2Btest12.png (PNG c
+opy)> <./pics/GemmaE2Btest2.png (PNG copy)>] [18] [19
+
+]
+<pics/tech/pytorch.png, id=302, 213.79875pt x 237.88875pt>
+File: pics/tech/pytorch.png Graphic file (type png)
+<use pics/tech/pytorch.png>
+Package pdftex.def Info: pics/tech/pytorch.png  used on input line 424.
+(pdftex.def)             Requested size: 56.64165pt x 63.02206pt.
+<pics/tech/hugging_face.jpg, id=303, 903.375pt x 903.375pt>
+File: pics/tech/hugging_face.jpg Graphic file (type jpg)
+<use pics/tech/hugging_face.jpg>
+Package pdftex.def Info: pics/tech/hugging_face.jpg  used on input line 434.
+(pdftex.def)             Requested size: 56.64165pt x 56.63998pt.
+<pics/tech/llama.png, id=304, 129.48375pt x 137.51375pt>
+File: pics/tech/llama.png Graphic file (type png)
+<use pics/tech/llama.png>
+Package pdftex.def Info: pics/tech/llama.png  used on input line 444.
+(pdftex.def)             Requested size: 56.64165pt x 60.15372pt.
+<pics/tech/kaggle.png, id=305, 362.35374pt x 140.525pt>
+File: pics/tech/kaggle.png Graphic file (type png)
+<use pics/tech/kaggle.png>
+Package pdftex.def Info: pics/tech/kaggle.png  used on input line 454.
+(pdftex.def)             Requested size: 56.64165pt x 21.96555pt.
+<pics/tech/fastapi.png, id=306, 281.05pt x 281.05pt>
+File: pics/tech/fastapi.png Graphic file (type png)
+<use pics/tech/fastapi.png>
+Package pdftex.def Info: pics/tech/fastapi.png  used on input line 464.
+(pdftex.def)             Requested size: 56.64165pt x 56.63785pt.
+<pics/tech/react.png, id=307, 235.88126pt x 214.8025pt>
+File: pics/tech/react.png Graphic file (type png)
+<use pics/tech/react.png>
+Package pdftex.def Info: pics/tech/react.png  used on input line 474.
+(pdftex.def)             Requested size: 56.64165pt x 51.57986pt.
+<pics/tech/docker.png, id=308, 256.96pt x 256.96pt>
+File: pics/tech/docker.png Graphic file (type png)
+<use pics/tech/docker.png>
+Package pdftex.def Info: pics/tech/docker.png  used on input line 484.
+(pdftex.def)             Requested size: 56.64165pt x 56.64114pt.
+<pics/tech/github.png, id=309, 642.4pt x 642.4pt>
+File: pics/tech/github.png Graphic file (type png)
+<use pics/tech/github.png>
+Package pdftex.def Info: pics/tech/github.png  used on input line 494.
+(pdftex.def)             Requested size: 56.64165pt x 56.63724pt.
+ [20
+
+ <./pics/tech/pytorch.png> <./pics/tech/hugging_face.jpg> <./pics/tech/llama.pn
+g (PNG copy)> <./pics/tech/kaggle.png> <./pics/tech/fastapi.png> <./pics/tech/r
+eact.png> <./pics/tech/docker.png (PNG copy)> <./pics/tech/github.png>]
+(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+)
+(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2025/11/14 1.11b listings language file
+)
+
+! Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.511 ...e=pythoncode, title=Install Dependencies]
+                                                  
+? 
+
+! Package Listings Error: style pythoncode undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.511 ...e=pythoncode, title=Install Dependencies]
+                                                  
+? 
+
+! Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.522 ...e=pythoncode, title=Download GPT-2 Small]
+                                                  
+? 
+
+! Package Listings Error: style pythoncode undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.522 ...e=pythoncode, title=Download GPT-2 Small]
+                                                  
+? 
+
+! Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.529 ...yle=pythoncode, title=Download Gemma E2B]
+                                                  
+? 
+
+! Package Listings Error: style pythoncode undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.529 ...yle=pythoncode, title=Download Gemma E2B]
+                                                  
+? 
+
+! Package Listings Error: Couldn't load requested style.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.538 ...style=pythoncode, title=Run Local Server]
+                                                  
+? 
+
+! Package Listings Error: style pythoncode undefined.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.538 ...style=pythoncode, title=Run Local Server]
+                                                  
+? 
+[21
+
+] [22] (./main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
@@ -1049,30 +1218,56 @@ L3 programming layer <2026-01-19>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 4.17pt have occurred.
 
-Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 31CF2A0B866544C9398A3B887D9C6D8A;4674.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `main.out':
+(rerunfilecheck)             Before: 31CF2A0B866544C9398A3B887D9C6D8A;4674
+(rerunfilecheck)             After:  76FCC2FD208590CEAFC15E267D40DD17;5595.
  ) 
 Here is how much of TeX's memory you used:
- 29025 strings out of 469515
- 558709 string characters out of 5470808
- 1228956 words of memory out of 5000000
- 57095 multiletter control sequences out of 15000+600000
- 643484 words of font info for 107 fonts, out of 8000000 for 9000
+ 29175 strings out of 469515
+ 561912 string characters out of 5470808
+ 1230080 words of memory out of 5000000
+ 57193 multiletter control sequences out of 15000+600000
+ 647728 words of font info for 125 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,12n,108p,1001b,1744s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/t
-exmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts
-/type1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/c
-m-super/sfbx2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx358
-3.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/sha
-re/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/f
-onts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf-dist/fonts/type1/publ
-ic/cm-super/sftt0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sft
-t1000.pfb>
-Output written on main.pdf (19 pages, 4592422 bytes).
+ 98i,11n,108p,1001b,1481s stack positions out of 10000i,1000n,20000p,200000b,200000s
+
+pdfTeX warning (dest): name{subsection.9.4} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.9.3} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.9.2} has been referenced but does not ex
+ist, replaced by a fixed one
+
+
+pdfTeX warning (dest): name{subsection.9.1} has been referenced but does not ex
+ist, replaced by a fixed one
+
+</usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/tex
+mf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts/t
+ype1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/cm-
+super/sfbx2074.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx3583.
+pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/share
+/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/fon
+ts/type1/public/cm-super/sfti1000.pfb></usr/share/texmf-dist/fonts/type1/public
+/cm-super/sftt0800.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt0
+900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/s
+hare/texmf-dist/fonts/type1/public/cm-super/sftt1728.pfb>
+Output written on main.pdf (23 pages, 5181050 bytes).
 PDF statistics:
- 348 PDF objects out of 1000 (max. 8388607)
- 285 compressed objects within 3 object streams
- 72 named destinations out of 1000 (max. 500000)
- 40739 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 426 PDF objects out of 1000 (max. 8388607)
+ 338 compressed objects within 4 object streams
+ 100 named destinations out of 1000 (max. 500000)
+ 49498 words of extra memory for PDF output out of 51595 (max. 10000000)
 

@@ -5,7 +5,7 @@
 \@writefile{toc}{\contentsline {section}{\numberline {1}Introduction and Problem Statement}{4}{section.1}\protected@file@percent }
 \newlabel{sec:intro}{{1}{4}{Introduction and Problem Statement}{section.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.1}The Challenge: Domain-Specific Text Generation}{4}{subsection.1.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Our Approach: QLoRA Fine-Tuning and Edge Deployment}{4}{subsection.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Our Approach: Multi-Model Fine-Tuning and Edge Deployment}{4}{subsection.1.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces End-to-end LLM fine-tuning, merging, and quantization pipeline.}}{5}{figure.1}\protected@file@percent }
 \newlabel{fig:pipeline}{{1}{5}{End-to-end LLM fine-tuning, merging, and quantization pipeline}{figure.1}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Background: Parameter-Efficient Fine-Tuning}{6}{section.2}\protected@file@percent }
@@ -14,10 +14,11 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Quantization and QLoRA}{6}{subsection.2.2}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces LoRA architecture: small rank decomposition matrices are trained while the pre-trained weights remain frozen.}}{6}{figure.2}\protected@file@percent }
 \newlabel{fig:lora}{{2}{6}{LoRA architecture: small rank decomposition matrices are trained while the pre-trained weights remain frozen}{figure.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {3}Model Architecture: Gemma 4}{7}{section.3}\protected@file@percent }
-\newlabel{sec:model}{{3}{7}{Model Architecture: Gemma 4}{section.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Overview of Gemma 4 E2B-IT}{7}{subsection.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Why Gemma 4 E2B?}{7}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Model Architectures and Selection}{7}{section.3}\protected@file@percent }
+\newlabel{sec:model}{{3}{7}{Model Architectures and Selection}{section.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Gemma 4 E2B-IT (Fine-Tuned)}{7}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}GPT-2 Small (Fine-Tuned)}{7}{subsection.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Base Models for Comparison}{7}{subsection.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {4}Dataset}{8}{section.4}\protected@file@percent }
 \newlabel{sec:dataset}{{4}{8}{Dataset}{section.4}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Source and Formatting}{8}{subsection.4.1}\protected@file@percent }
@@ -28,27 +29,32 @@
 \newlabel{sec:training}{{5}{9}{Training Methodology}{section.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Configuration and Hardware}{9}{subsection.5.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Overcoming Memory Constraints}{9}{subsection.5.2}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Training loss curve over the 1-epoch fine-tuning run.}}{10}{figure.4}\protected@file@percent }
-\newlabel{fig:loss_curve}{{4}{10}{Training loss curve over the 1-epoch fine-tuning run}{figure.4}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Training loss curve over the 1-epoch fine-tuning run. The loss fluctuates over the steps but maintains an overall downward trend, indicating effective learning and adaptation to the domain.}}{10}{figure.4}\protected@file@percent }
+\newlabel{fig:loss_curve}{{4}{10}{Training loss curve over the 1-epoch fine-tuning run. The loss fluctuates over the steps but maintains an overall downward trend, indicating effective learning and adaptation to the domain}{figure.4}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {6}Model Export and Deployment}{11}{section.6}\protected@file@percent }
 \newlabel{sec:export}{{6}{11}{Model Export and Deployment}{section.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Merging the Adapters}{11}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}GGUF Quantization via llama.cpp}{11}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Merging the Adapters and Quantization}{11}{subsection.6.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces The llama.cpp conversion and quantization process log (part 1).}}{12}{figure.5}\protected@file@percent }
 \newlabel{fig:gguf_part1}{{5}{12}{The llama.cpp conversion and quantization process log (part 1)}{figure.5}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces The llama.cpp conversion and quantization process log (part 2).}}{13}{figure.6}\protected@file@percent }
 \newlabel{fig:gguf_part2}{{6}{13}{The llama.cpp conversion and quantization process log (part 2)}{figure.6}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces The llama.cpp conversion and quantization process log (part 3).}}{14}{figure.7}\protected@file@percent }
 \newlabel{fig:gguf}{{7}{14}{The llama.cpp conversion and quantization process log (part 3)}{figure.7}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Hugging Face Repositories}{14}{subsection.6.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Gemma model repository on Hugging Face.}}{15}{figure.8}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces GPT-2 Small model repository on Hugging Face.}}{15}{figure.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Adapter weights repository on Hugging Face.}}{15}{figure.10}\protected@file@percent }
 \@writefile{toc}{\contentsline {section}{\numberline {7}Evaluation and Results}{16}{section.7}\protected@file@percent }
 \newlabel{sec:results}{{7}{16}{Evaluation and Results}{section.7}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Qualitative Examples}{16}{subsection.7.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Comparison of generated stories for Age 3-4 vs Age 11-12 from the same prompt.}}{16}{figure.8}\protected@file@percent }
-\newlabel{fig:generations}{{8}{16}{Comparison of generated stories for Age 3-4 vs Age 11-12 from the same prompt}{figure.8}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion and Limitations}{17}{section.8}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {9}Technologies Used}{18}{section.9}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}PyTorch \& Transformers}{18}{subsection.9.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}PEFT \& BitsAndBytes}{18}{subsection.9.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}llama.cpp}{18}{subsection.9.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {9.4}Kaggle}{18}{subsection.9.4}\protected@file@percent }
-\gdef \@abspage@last{19}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Qualitative Examples (Gemma 4 E2B-IT)}{16}{subsection.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Comparison of generated stories for Age 3-4 vs Age 11-12 from the same prompt.}}{17}{figure.11}\protected@file@percent }
+\newlabel{fig:generations}{{11}{17}{Comparison of generated stories for Age 3-4 vs Age 11-12 from the same prompt}{figure.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Comparison with Base Models}{18}{subsection.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Discussion and Limitations}{19}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {9}Technologies Used}{20}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Local Reproduction Guide}{21}{section.10}\protected@file@percent }
+\newlabel{sec:reproduction}{{10}{21}{Local Reproduction Guide}{section.10}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.1}1. Environment Setup}{21}{subsection.10.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.2}2. Download the Models (Optional)}{21}{subsection.10.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.3}3. Run the API and Web UI}{21}{subsection.10.3}\protected@file@percent }
+\gdef \@abspage@last{23}

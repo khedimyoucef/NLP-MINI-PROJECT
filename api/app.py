@@ -102,9 +102,12 @@ async def activate_model_endpoint(req: ActivateModelRequest):
 
 @app.post("/generate")
 async def generate(req: GenerateRequest):
+    available = discover_models()
+    if not available:
+        raise HTTPException(status_code=503, detail="No models available. Download at least one model to the 'models/' directory.")
     model_name = req.model_name or current_model_name or DEFAULT_MODEL_NAME
-    if model_name not in discover_models():
-        raise HTTPException(status_code=400, detail=f"Unknown model: {model_name}")
+    if model_name not in available:
+        raise HTTPException(status_code=400, detail=f"Unknown model: {model_name}. Available: {', '.join(available)}")
 
     await activate_model(model_name)
     return StreamingResponse(generate_stream(req, model_name), media_type="text/plain")

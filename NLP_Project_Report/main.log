@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.5.2)  4 MAY 2026 15:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.5.2)  4 MAY 2026 17:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -829,11 +829,11 @@ LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <19> not available
 /enc/dvips/cm-super/cm-super-t1.enc}]
 
 LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 168.
+(Font)              size <20.74> substituted on input line 173.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 168.
+(Font)              size <20.74> substituted on input line 173.
 
 (./main.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -845,7 +845,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.22 ...rline {9}Technologies Used}{17}{section.9}
+l.22 ...rline {9}Technologies Used}{18}{section.9}
                                                   % [1])
 \tf@toc=\write5
 \openout5 = `main.toc'.
@@ -858,11 +858,11 @@ l.22 ...rline {9}Technologies Used}{17}{section.9}
 [3]
 
 LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 180.
+(Font)              size <17.28> substituted on input line 185.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 180.
+(Font)              size <17.28> substituted on input line 185.
 
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
@@ -871,7 +871,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 <pics/EndToEndLLMfinetuning.png, id=177, 1413.28pt x 770.88pt>
 File: pics/EndToEndLLMfinetuning.png Graphic file (type png)
 <use pics/EndToEndLLMfinetuning.png>
-Package pdftex.def Info: pics/EndToEndLLMfinetuning.png  used on input line 194
+Package pdftex.def Info: pics/EndToEndLLMfinetuning.png  used on input line 199
 .
 (pdftex.def)             Requested size: 472.03123pt x 257.473pt.
 [4{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [5
@@ -879,12 +879,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.199 \clearpage
+l.204 \clearpage
                  <./pics/EndToEndLLMfinetuning.png>]
 <pics/LoRAarch.png, id=191, 1413.28pt x 770.88pt>
 File: pics/LoRAarch.png Graphic file (type png)
 <use pics/LoRAarch.png>
-Package pdftex.def Info: pics/LoRAarch.png  used on input line 213.
+Package pdftex.def Info: pics/LoRAarch.png  used on input line 218.
 (pdftex.def)             Requested size: 377.62642pt x 205.97604pt.
  [6
 
@@ -893,14 +893,14 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.218 \clearpage
+l.223 \clearpage
                  <./pics/LoRAarch.png>] [7
 
 ]
 <pics/DatasetPlots.png, id=202, 970.5861pt x 380.1402pt>
 File: pics/DatasetPlots.png Graphic file (type png)
 <use pics/DatasetPlots.png>
-Package pdftex.def Info: pics/DatasetPlots.png  used on input line 259.
+Package pdftex.def Info: pics/DatasetPlots.png  used on input line 264.
 (pdftex.def)             Requested size: 377.62642pt x 147.90024pt.
  [8
 
@@ -909,7 +909,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.264 \clearpage
+l.269 \clearpage
                  <./pics/DatasetPlots.png>]
 \g__tcobox_out_iow=\write7
 \openout7 = `main.listing'.
@@ -921,7 +921,7 @@ File: lstlang1.sty 2025/11/14 1.11b listings language file
 <pics/LossPlot.png, id=215, 462.528pt x 346.896pt>
 File: pics/LossPlot.png Graphic file (type png)
 <use pics/LossPlot.png>
-Package pdftex.def Info: pics/LossPlot.png  used on input line 296.
+Package pdftex.def Info: pics/LossPlot.png  used on input line 301.
 (pdftex.def)             Requested size: 472.03123pt x 354.04095pt.
 
 [9
@@ -931,17 +931,17 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.304 \clearpage
+l.309 \clearpage
                  <./pics/LossPlot.png>]
 <pics/stage1log.png, id=239, 558.085pt x 205.76875pt>
 File: pics/stage1log.png Graphic file (type png)
 <use pics/stage1log.png>
-Package pdftex.def Info: pics/stage1log.png  used on input line 320.
+Package pdftex.def Info: pics/stage1log.png  used on input line 325.
 (pdftex.def)             Requested size: 401.22942pt x 147.93987pt.
 <pics/stage2log.png, id=240, 574.145pt x 426.59375pt>
 File: pics/stage2log.png Graphic file (type png)
 <use pics/stage2log.png>
-Package pdftex.def Info: pics/stage2log.png  used on input line 321.
+Package pdftex.def Info: pics/stage2log.png  used on input line 326.
 (pdftex.def)             Requested size: 401.22942pt x 298.12538pt.
  [11
 
@@ -949,34 +949,34 @@ Package pdftex.def Info: pics/stage2log.png  used on input line 321.
 <pics/stage3-1log.png, id=245, 626.34pt x 566.115pt>
 File: pics/stage3-1log.png Graphic file (type png)
 <use pics/stage3-1log.png>
-Package pdftex.def Info: pics/stage3-1log.png  used on input line 328.
+Package pdftex.def Info: pics/stage3-1log.png  used on input line 333.
 (pdftex.def)             Requested size: 401.22942pt x 362.65788pt.
 <pics/stage3-2log.png, id=246, 814.04124pt x 337.26pt>
 File: pics/stage3-2log.png Graphic file (type png)
 <use pics/stage3-2log.png>
-Package pdftex.def Info: pics/stage3-2log.png  used on input line 329.
+Package pdftex.def Info: pics/stage3-2log.png  used on input line 334.
 (pdftex.def)             Requested size: 401.22942pt x 166.23146pt.
  [12
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.333 
+l.338 
        <./pics/stage1log.png (PNG copy)> <./pics/stage2log.png (PNG copy)>]
 <pics/stage3-4log.png, id=252, 580.1675pt x 93.34875pt>
 File: pics/stage3-4log.png Graphic file (type png)
 <use pics/stage3-4log.png>
-Package pdftex.def Info: pics/stage3-4log.png  used on input line 336.
+Package pdftex.def Info: pics/stage3-4log.png  used on input line 341.
 (pdftex.def)             Requested size: 401.22942pt x 64.5574pt.
 <pics/stage3-5log.png, id=253, 599.23875pt x 127.47626pt>
 File: pics/stage3-5log.png Graphic file (type png)
 <use pics/stage3-5log.png>
-Package pdftex.def Info: pics/stage3-5log.png  used on input line 337.
+Package pdftex.def Info: pics/stage3-5log.png  used on input line 342.
 (pdftex.def)             Requested size: 401.22942pt x 85.35612pt.
 <pics/stage4log.png, id=254, 676.5275pt x 270.00874pt>
 File: pics/stage4log.png Graphic file (type png)
 <use pics/stage4log.png>
-Package pdftex.def Info: pics/stage4log.png  used on input line 338.
+Package pdftex.def Info: pics/stage4log.png  used on input line 343.
 (pdftex.def)             Requested size: 401.22942pt x 160.14012pt.
 
 [13
@@ -984,26 +984,60 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.342 
-       <./pics/stage3-1log.png (PNG copy)> <./pics/stage3-2log.png (PNG copy)>]
+l.347 t
+       he final GGUF file was then downloaded and tested on a local machine ...
+ <./pics/stage3-1log.png (PNG copy)> <./pics/stage3-2log.png (PNG copy)>]
+<pics/gemma2HF.png, id=259, 1616.0375pt x 444.66125pt>
+File: pics/gemma2HF.png Graphic file (type png)
+<use pics/gemma2HF.png>
+Package pdftex.def Info: pics/gemma2HF.png  used on input line 351.
+(pdftex.def)             Requested size: 401.22942pt x 110.39833pt.
+
+Overfull \hbox (269.77446pt too wide) in paragraph at lines 350--353
+\T1/cmr/m/n/10 (-20) :https://huggingface.co/khedim/NLP-MINI-PROJECT/tree/main/
+gemma-e2b []
+ []
+
+<pics/gpt2-smallHF.png, id=260, 1637.11626pt x 703.62875pt>
+File: pics/gpt2-smallHF.png Graphic file (type png)
+<use pics/gpt2-smallHF.png>
+Package pdftex.def Info: pics/gpt2-smallHF.png  used on input line 354.
+(pdftex.def)             Requested size: 401.22942pt x 172.43886pt.
+<pics/adapterWeightsHF.png, id=261, 1606.0pt x 788.9475pt>
+File: pics/adapterWeightsHF.png Graphic file (type png)
+<use pics/adapterWeightsHF.png>
+Package pdftex.def Info: pics/adapterWeightsHF.png  used on input line 356.
+(pdftex.def)             Requested size: 401.22942pt x 197.10396pt.
+
+Overfull \hbox (11.03264pt too wide) in paragraph at lines 354--357
+[][] \T1/cmr/m/n/10 (-20) and the stan-dalone
+ []
+
+
+Overfull \hbox (61.83136pt too wide) in paragraph at lines 354--357
+\T1/cmr/m/n/10 (-20) PROJECT-adapter/tree/main [] 
+ []
+
 [14
 pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.343 \clearpage
+l.357 \clearpage
                  <./pics/stage3-4log.png (PNG copy)> <./pics/stage3-5log.png (P
-NG copy)> <./pics/stage4log.png (PNG copy)>] [15
+NG copy)> <./pics/stage4log.png (PNG copy)> <./pics/gemma2HF.png (PNG copy)>]
+[15 <./pics/gpt2-smallHF.png (PNG copy)> <./pics/adapterWeightsHF.png (PNG copy
+)>] [16
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.359 \clearpage
-                ] [16
+l.373 \clearpage
+                ] [17
 
-] [17
+] [18
 
 ] (./main.aux)
  ***********
@@ -1019,13 +1053,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 31CF2A0B866544C9398A3B887D9C6D8A;4674.
  ) 
 Here is how much of TeX's memory you used:
- 28999 strings out of 469515
- 558075 string characters out of 5470808
+ 29025 strings out of 469515
+ 558709 string characters out of 5470808
  1228956 words of memory out of 5000000
- 57074 multiletter control sequences out of 15000+600000
- 643368 words of font info for 105 fonts, out of 8000000 for 9000
+ 57095 multiletter control sequences out of 15000+600000
+ 643484 words of font info for 107 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,11n,108p,1001b,1744s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,12n,108p,1001b,1744s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/t
 exmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts
 /type1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/c
@@ -1035,10 +1069,10 @@ re/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/f
 onts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf-dist/fonts/type1/publ
 ic/cm-super/sftt0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sft
 t1000.pfb>
-Output written on main.pdf (18 pages, 2614369 bytes).
+Output written on main.pdf (19 pages, 4592422 bytes).
 PDF statistics:
- 340 PDF objects out of 1000 (max. 8388607)
- 281 compressed objects within 3 object streams
- 71 named destinations out of 1000 (max. 500000)
- 40724 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 348 PDF objects out of 1000 (max. 8388607)
+ 285 compressed objects within 3 object streams
+ 72 named destinations out of 1000 (max. 500000)
+ 40739 words of extra memory for PDF output out of 42996 (max. 10000000)
 

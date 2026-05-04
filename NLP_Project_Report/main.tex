@@ -149,7 +149,12 @@ This NLP project focuses on domain adaptation by fine-tuning Google's Gemma 4 (E
 \textbf{Group Members:} \\[0.3cm]
 Benhammadi Lokmane \\[0.3cm]
 Khedim Youcef \\[0.3cm]
-% Add additional team members here
+
+Group 1
+Speciality :IASD 
+
+
+Github repo link (source code) : https://github.com/khedimyoucef/NLP-MINI-PROJECT
 \end{center}
 
 \vspace*{\fill}
@@ -339,7 +344,16 @@ monitored and cleaned up the unnecessary files at/after each stage of the conver
 \caption{The llama.cpp conversion and quantization process log (part 3).}
 \label{fig:gguf}
 \end{figure}
+the final GGUF file was then downloaded and tested on a local machine using \texttt{llama.cpp} to verify that the fine-tuning and quantization processes preserved 
+the model's ability to generate coherent, age-appropriate stories.
 
+and the resulting single gguf fine tuned model file was uploaded to this hugging face repository for presistency :https://huggingface.co/khedim/NLP-MINI-PROJECT/tree/main/gemma-e2b
+\includegraphics[width=0.85\textwidth]{pics/gemma2HF.png}
+while the finetuned gpt2 small is sitting alongside it in the same repo : https://huggingface.co/khedim/NLP-MINI-PROJECT/tree/main
+
+\includegraphics[width=0.85\textwidth]{pics/gpt2-smallHF.png}
+and the standalone adpater weights alongside the checkpint are also available here : https://huggingface.co/khedim/NLP-MINI-PROJECT-adapter/tree/main
+\includegraphics[width=0.85\textwidth]{pics/adapterWeightsHF.png}   
 \clearpage
 \newpage
 
@@ -351,8 +365,21 @@ Post fine-tuning, the model reliably adhered to the age-level prefixes, adjustin
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.9\textwidth]{pics/placeholder_generation.png} % PLACEHOLDER
+example prompt : write a story about a disobedient kid who does want to study and ends up failing school
+(note that we used "write a story" because we used the IT version of the model, which is already instruction tuned, 
++ our dataset was also formatted in the instruction format, so we wanted to keep the same format for testing as well to get the best results possible from the model)
+
+\includegraphics[width=0.9\textwidth]{pics/GemmaE2Btest11.png}
+\includegraphics[width=0.9\textwidth]{pics/GemmaE2Btest12.png}
+
+and for the ages 11 to 12 for the same prompt :
+\includegraphics[width=0.9\textwidth]{pics/GemmaE2Btest2.png}
+
 \caption{Comparison of generated stories for Age 3-4 vs Age 11-12 from the same prompt.}
+
+from the results here we can see that not only the model was able to successfully use more complex language and grammer for the older age group 
+but also made the ending in the 3-4 age group more positive and simple while the ending in the 11-12 age group was more realistic and complex, 
+which shows that the model was able to learn the different storytelling styles that suit the differences of emotional and intellectual development between the two age groups
 \label{fig:generations}
 \end{figure}
 
@@ -378,7 +405,7 @@ While the fine-tuned model successfully generated formatted, age-appropriate chi
 PyTorch powers the underlying tensor math, while the HuggingFace Transformers library handles model loading, tokenization, and the training loop abstraction.
 \end{minipage}\hspace{.2in}
 \begin{minipage}{0.25\textwidth}\centering
-%\includegraphics[width=0.7\textwidth]{pics/tech/placeholder_pytorch.png} % PLACEHOLDER
+\includegraphics[width=0.7\textwidth]{pics/tech/placeholder_pytorch.png} % PLACEHOLDER
 \end{minipage}
 
 \vspace{.15in}
@@ -388,7 +415,7 @@ PyTorch powers the underlying tensor math, while the HuggingFace Transformers li
 The PEFT library manages the LoRA adapter injection, while BitsAndBytes enables the NF4 precision loading essential for QLoRA on consumer hardware.
 \end{minipage}\hspace{.2in}
 \begin{minipage}{0.25\textwidth}\centering
-%\includegraphics[width=0.7\textwidth]{pics/tech/placeholder_peft.png} % PLACEHOLDER
+\includegraphics[width=0.7\textwidth]{pics/tech/pytorch.png} 
 \end{minipage}
 
 \vspace{.15in}
@@ -398,7 +425,7 @@ The PEFT library manages the LoRA adapter injection, while BitsAndBytes enables 
 Written in pure C/C++, llama.cpp provides the engine for converting the PyTorch model into the highly optimized GGUF format for edge inference.
 \end{minipage}\hspace{.2in}
 \begin{minipage}{0.25\textwidth}\centering
-%\includegraphics[width=0.5\textwidth]{pics/tech/placeholder_llama.png} % PLACEHOLDER
+\includegraphics[width=0.5\textwidth]{pics/tech/llama.png} 
 \end{minipage}
 
 \vspace{.15in}
@@ -408,7 +435,13 @@ Written in pure C/C++, llama.cpp provides the engine for converting the PyTorch 
 Kaggle's cloud environment, specifically the dual T4 GPU accelerators, served as the primary hardware infrastructure for the fine-tuning process.
 \end{minipage}\hspace{.2in}
 \begin{minipage}{0.25\textwidth}\centering
-%\includegraphics[width=0.7\textwidth]{pics/tech/placeholder_kaggle.png} % PLACEHOLDER
+\includegraphics[width=0.7\textwidth]{pics/tech/kaggle.png} 
+
+add more technologies here : i have react.png , docker.png , fastapi.png , github.png , huggingface.png here in the same tech folder 
+
+
+also state how to run (reproduce the full project locally) for the prof to try it herself on the cpu locally since we did not deploy it in the web
+(how to setit up from 0 to 100 and run the model locally using llama.cpp and the gguf file that we uploaded to hugging face)
 \end{minipage}
 
 \end{document}

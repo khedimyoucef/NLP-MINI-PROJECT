@@ -22,7 +22,31 @@
 \usepackage{microtype}
 \usepackage{tcolorbox}
 \usepackage{listings}
-\tcbuselibrary{listings,breakable}
+\lstdefinelanguage{json}{
+    basicstyle=\ttfamily\small,
+    showstringspaces=false,
+    breaklines=true,
+    morestring=[b]",
+    stringstyle=\color{orange},
+    literate=
+     *{0}{{{0}}}{1}
+      {1}{{{1}}}{1}
+      {2}{{{2}}}{1}
+      {3}{{{3}}}{1}
+      {4}{{{4}}}{1}
+      {5}{{{5}}}{1}
+      {6}{{{6}}}{1}
+      {7}{{{7}}}{1}
+      {8}{{{8}}}{1}
+      {9}{{{9}}}{1}
+      {:}{{{:}}}{1}
+      {,}{{{,}}}{1}
+      {\{}{{\{}}{1}
+      {\}}{{\}}}{1}
+      {[}{{[}}{1}
+      {]}{{]}}{1}
+}
+\tcbuselibrary{listings,breakable,skins}
 
 % --- Colors ---
 \definecolor{dominantColor}{HTML}{000000}
@@ -269,7 +293,10 @@ Due to Gemma 4's massive 256K token vocabulary, calculating cross-entropy loss o
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=\textwidth]{pics/placeholder_training_curves.png} % PLACEHOLDER
+\includegraphics[width=\textwidth]{pics/LossPlot.png} 
+we can note that the loss was a bit fluctuating over the steps but it still was decreasing overall, which is a good sign that the model was learning to adapt to the new task. 
+The fluctuations could be due to the small batch size and the complexity of the task, but the downward trend indicates that the fine-tuning process was effective
+in improving the model's performance on generating children's stories.
 \caption{Training loss curve over the 1-epoch fine-tuning run.}
 \label{fig:loss_curve}
 \end{figure}
@@ -286,11 +313,30 @@ QLoRA results in standalone adapter weights. For efficient deployment, we reload
 \subsection{GGUF Quantization via llama.cpp}
 To deploy the model locally, we converted the merged model into the GGUF (GPT-Generated Unified Format) standard using \texttt{llama.cpp}. 
 The FP16 model was further quantized down to \texttt{Q4\_K\_M} (4-bit, medium quantization). This reduced the model's disk footprint to approximately 1.5 GB, allowing it to run entirely on consumer CPU RAM with minimal loss in generative quality.
+Another problem we faced was the management of the kaggles limited ram and storage resources so we had to implement a pipeline that constantly 
+monitored and cleaned up the unnecessary files at/after each stage of the conversion and quantization process to ensure that we didn't run out of space during the process.
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{pics/stage1log.png}\\[0.8em]
+\includegraphics[width=0.85\textwidth]{pics/stage2log.png}
+\caption{The llama.cpp conversion and quantization process log (part 1).}
+\label{fig:gguf_part1}
+\end{figure}
 
 \begin{figure}[H]
 \centering
-%\includegraphics[width=0.85\textwidth]{pics/placeholder_gguf.png} % PLACEHOLDER
-\caption{The llama.cpp conversion and quantization process log.}
+\includegraphics[width=0.85\textwidth]{pics/stage3-1log.png}\\[0.8em]
+\includegraphics[width=0.85\textwidth]{pics/stage3-2log.png}
+\caption{The llama.cpp conversion and quantization process log (part 2).}
+\label{fig:gguf_part2}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.85\textwidth]{pics/stage3-4log.png}\\[0.8em]
+\includegraphics[width=0.85\textwidth]{pics/stage3-5log.png}\\[0.8em]
+\includegraphics[width=0.85\textwidth]{pics/stage4log.png}
+\caption{The llama.cpp conversion and quantization process log (part 3).}
 \label{fig:gguf}
 \end{figure}
 

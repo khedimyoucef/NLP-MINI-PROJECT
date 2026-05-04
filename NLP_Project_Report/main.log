@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.5.2)  3 MAY 2026 18:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (TeX Live 2026/Arch Linux) (preloaded format=pdflatex 2026.5.2)  4 MAY 2026 15:24
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -684,38 +684,51 @@ Package pdfcol Info: New color stack `tcb@breakable' = 1 on input line 23.
 \tcb@totalupperbox=\box84
 \tcb@totallowerbox=\box85
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 54.
+(/usr/share/texmf-dist/tex/latex/tcolorbox/tcbskins.code.tex
+Library (tcolorbox): 'tcbskins.code.tex' version '6.9.0'
+(/usr/share/texmf-dist/tex/latex/tikzfill/tikzfill.image.sty
+Package: tikzfill.image 2023/08/08 v1.0.1 Image filling library for TikZ
 
-(/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+(/usr/share/texmf-dist/tex/latex/tikzfill/tikzfill-common.sty
+Package: tikzfill-common 2023/08/08 v1.0.1 Auxiliary code for tikzfill
+)
+(/usr/share/texmf-dist/tex/latex/tikzfill/tikzlibraryfill.image.code.tex
+File: tikzlibraryfill.image.code.tex 2023/08/08 v1.0.1 Image filling library
+\l__tikzfill_img_box=\box86
+))
+(/usr/share/texmf-dist/tex/latex/tcolorbox/tcbskinsjigsaw.code.tex
+Library (tcolorbox): 'tcbskinsjigsaw.code.tex' version '6.9.0'
+))
+Package hyperref Info: Option `colorlinks' set `true' on input line 78.
+ (/usr/share/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count345
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 90.
-LaTeX Font Info:    ... okay on input line 90.
-
-(/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 114.
+LaTeX Font Info:    ... okay on input line 114.
+ (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count346
 \scratchdimen=\dimen304
-\scratchbox=\box86
+\scratchbox=\box87
 \nofMPsegments=\count347
 \nofMParguments=\count348
 \everyMPshowfont=\toks48
@@ -767,21 +780,21 @@ e
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring ON on input line 90.
+Package hyperref Info: Link coloring ON on input line 114.
 (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Info: Redefining \microtypecontext on input line 90.
-Package microtype Info: Applying patch `item' on input line 90.
-Package microtype Info: Applying patch `toc' on input line 90.
-Package microtype Info: Applying patch `eqnum' on input line 90.
+LaTeX Info: Redefining \microtypecontext on input line 114.
+Package microtype Info: Applying patch `item' on input line 114.
+Package microtype Info: Applying patch `toc' on input line 114.
+Package microtype Info: Applying patch `eqnum' on input line 114.
 
 
-Package microtype Warning: Unable to apply patch `footnote' on input line 90.
+Package microtype Warning: Unable to apply patch `footnote' on input line 114.
 
-Package microtype Info: Applying patch `verbatim' on input line 90.
-LaTeX Info: Redefining \microtypesetup on input line 90.
+Package microtype Info: Applying patch `verbatim' on input line 114.
+LaTeX Info: Redefining \microtypesetup on input line 114.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -800,15 +813,15 @@ File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <40> not available
-(Font)              size <35.83> substituted on input line 102.
+(Font)              size <35.83> substituted on input line 126.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <40> not available
-(Font)              size <35.83> substituted on input line 102.
+(Font)              size <35.83> substituted on input line 126.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <19> not available
-(Font)              size <17.28> substituted on input line 118.
+(Font)              size <17.28> substituted on input line 142.
 
 [1
 
@@ -816,11 +829,11 @@ LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <19> not available
 /enc/dvips/cm-super/cm-super-t1.enc}]
 
 LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 144.
+(Font)              size <20.74> substituted on input line 168.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <22> not available
-(Font)              size <20.74> substituted on input line 144.
+(Font)              size <20.74> substituted on input line 168.
 
 (./main.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -832,7 +845,7 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.22 ...rline {9}Technologies Used}{12}{section.9}
+l.22 ...rline {9}Technologies Used}{17}{section.9}
                                                   % [1])
 \tf@toc=\write5
 \openout5 = `main.toc'.
@@ -845,20 +858,20 @@ l.22 ...rline {9}Technologies Used}{12}{section.9}
 [3]
 
 LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 156.
+(Font)              size <17.28> substituted on input line 180.
 
 
 LaTeX Font Warning: Font shape `T1/cmr/bx/n' in size <18> not available
-(Font)              size <17.28> substituted on input line 156.
+(Font)              size <17.28> substituted on input line 180.
 
 Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
-<pics/EndToEndLLMfinetuning.png, id=173, 1413.28pt x 770.88pt>
+<pics/EndToEndLLMfinetuning.png, id=177, 1413.28pt x 770.88pt>
 File: pics/EndToEndLLMfinetuning.png Graphic file (type png)
 <use pics/EndToEndLLMfinetuning.png>
-Package pdftex.def Info: pics/EndToEndLLMfinetuning.png  used on input line 170
+Package pdftex.def Info: pics/EndToEndLLMfinetuning.png  used on input line 194
 .
 (pdftex.def)             Requested size: 472.03123pt x 257.473pt.
 [4{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] [5
@@ -866,12 +879,12 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.1}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.175 \clearpage
+l.199 \clearpage
                  <./pics/EndToEndLLMfinetuning.png>]
-<pics/LoRAarch.png, id=187, 1413.28pt x 770.88pt>
+<pics/LoRAarch.png, id=191, 1413.28pt x 770.88pt>
 File: pics/LoRAarch.png Graphic file (type png)
 <use pics/LoRAarch.png>
-Package pdftex.def Info: pics/LoRAarch.png  used on input line 189.
+Package pdftex.def Info: pics/LoRAarch.png  used on input line 213.
 (pdftex.def)             Requested size: 377.62642pt x 205.97604pt.
  [6
 
@@ -880,97 +893,117 @@ pdfTeX warning (ext4): destination with the same identifier (name{figure.2}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.194 \clearpage
+l.218 \clearpage
                  <./pics/LoRAarch.png>] [7
 
 ]
-(/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
-File: lstlang1.sty 2025/11/14 1.11b listings language file
-)
-(/usr/share/texmf-dist/tex/latex/listings/lstlang2.sty
-File: lstlang2.sty 2025/11/14 1.11b listings language file
-)
-(/usr/share/texmf-dist/tex/latex/listings/lstlang3.sty
-File: lstlang3.sty 2025/11/14 1.11b listings language file
-)
-
-! Package Listings Error: Couldn't load requested language.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.222 ...aklines=true, basicstyle=\small\ttfamily]
-                                                  
-? 
-
-! Package Listings Error: language json undefined.
-
-See the Listings package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.222 ...aklines=true, basicstyle=\small\ttfamily]
-                                                  
-? 
-<pics/DatasetPlots.png, id=198, 970.5861pt x 380.1402pt>
+<pics/DatasetPlots.png, id=202, 970.5861pt x 380.1402pt>
 File: pics/DatasetPlots.png Graphic file (type png)
 <use pics/DatasetPlots.png>
-Package pdftex.def Info: pics/DatasetPlots.png  used on input line 235.
+Package pdftex.def Info: pics/DatasetPlots.png  used on input line 259.
 (pdftex.def)             Requested size: 377.62642pt x 147.90024pt.
-[8
+ [8
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.240 \clearpage
+l.264 \clearpage
                  <./pics/DatasetPlots.png>]
-
-! Package pgfkeys Error: I do not know the key '/tcb/enhanced' and I am going t
-o ignore it. Perhaps you misspelled it.
-
-See the pgfkeys package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.250 \begin{pythoncode}[Training Arguments]
-                                            
-? 
 \g__tcobox_out_iow=\write7
 \openout7 = `main.listing'.
+
 
 (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2025/11/14 1.11b listings language file
 ) (./main.listing)
+<pics/LossPlot.png, id=215, 462.528pt x 346.896pt>
+File: pics/LossPlot.png Graphic file (type png)
+<use pics/LossPlot.png>
+Package pdftex.def Info: pics/LossPlot.png  used on input line 296.
+(pdftex.def)             Requested size: 472.03123pt x 354.04095pt.
+
 [9
 
-
+] [10
 pdfTeX warning (ext4): destination with the same identifier (name{figure.4}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.277 \clearpage
-                ] [10
+l.304 \clearpage
+                 <./pics/LossPlot.png>]
+<pics/stage1log.png, id=239, 558.085pt x 205.76875pt>
+File: pics/stage1log.png Graphic file (type png)
+<use pics/stage1log.png>
+Package pdftex.def Info: pics/stage1log.png  used on input line 320.
+(pdftex.def)             Requested size: 401.22942pt x 147.93987pt.
+<pics/stage2log.png, id=240, 574.145pt x 426.59375pt>
+File: pics/stage2log.png Graphic file (type png)
+<use pics/stage2log.png>
+Package pdftex.def Info: pics/stage2log.png  used on input line 321.
+(pdftex.def)             Requested size: 401.22942pt x 298.12538pt.
+ [11
 
-
+]
+<pics/stage3-1log.png, id=245, 626.34pt x 566.115pt>
+File: pics/stage3-1log.png Graphic file (type png)
+<use pics/stage3-1log.png>
+Package pdftex.def Info: pics/stage3-1log.png  used on input line 328.
+(pdftex.def)             Requested size: 401.22942pt x 362.65788pt.
+<pics/stage3-2log.png, id=246, 814.04124pt x 337.26pt>
+File: pics/stage3-2log.png Graphic file (type png)
+<use pics/stage3-2log.png>
+Package pdftex.def Info: pics/stage3-2log.png  used on input line 329.
+(pdftex.def)             Requested size: 401.22942pt x 166.23146pt.
+ [12
 pdfTeX warning (ext4): destination with the same identifier (name{figure.5}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.297 \clearpage
-                ] [11
+l.333 
+       <./pics/stage1log.png (PNG copy)> <./pics/stage2log.png (PNG copy)>]
+<pics/stage3-4log.png, id=252, 580.1675pt x 93.34875pt>
+File: pics/stage3-4log.png Graphic file (type png)
+<use pics/stage3-4log.png>
+Package pdftex.def Info: pics/stage3-4log.png  used on input line 336.
+(pdftex.def)             Requested size: 401.22942pt x 64.5574pt.
+<pics/stage3-5log.png, id=253, 599.23875pt x 127.47626pt>
+File: pics/stage3-5log.png Graphic file (type png)
+<use pics/stage3-5log.png>
+Package pdftex.def Info: pics/stage3-5log.png  used on input line 337.
+(pdftex.def)             Requested size: 401.22942pt x 85.35612pt.
+<pics/stage4log.png, id=254, 676.5275pt x 270.00874pt>
+File: pics/stage4log.png Graphic file (type png)
+<use pics/stage4log.png>
+Package pdftex.def Info: pics/stage4log.png  used on input line 338.
+(pdftex.def)             Requested size: 401.22942pt x 160.14012pt.
 
-
+[13
 pdfTeX warning (ext4): destination with the same identifier (name{figure.6}) ha
 s been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.313 \clearpage
-                ] [12
+l.342 
+       <./pics/stage3-1log.png (PNG copy)> <./pics/stage3-2log.png (PNG copy)>]
+[14
+pdfTeX warning (ext4): destination with the same identifier (name{figure.7}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.343 \clearpage
+                 <./pics/stage3-4log.png (PNG copy)> <./pics/stage3-5log.png (P
+NG copy)> <./pics/stage4log.png (PNG copy)>] [15
 
-] [13
+
+pdfTeX warning (ext4): destination with the same identifier (name{figure.8}) ha
+s been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.359 \clearpage
+                ] [16
+
+] [17
 
 ] (./main.aux)
  ***********
@@ -982,20 +1015,17 @@ L3 programming layer <2026-01-19>
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 4.17pt have occurred.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 31CF2A0B866544C9398A3B887D9C6D8A;4674.
  ) 
 Here is how much of TeX's memory you used:
- 27769 strings out of 469515
- 521478 string characters out of 5470808
- 1159099 words of memory out of 5000000
- 55864 multiletter control sequences out of 15000+600000
- 643194 words of font info for 102 fonts, out of 8000000 for 9000
+ 28999 strings out of 469515
+ 558075 string characters out of 5470808
+ 1228956 words of memory out of 5000000
+ 57074 multiletter control sequences out of 15000+600000
+ 643368 words of font info for 105 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 98i,11n,108p,1001b,1712s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 98i,11n,108p,1001b,1744s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/share/t
 exmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/share/texmf-dist/fonts
 /type1/public/cm-super/sfbx1728.pfb></usr/share/texmf-dist/fonts/type1/public/c
@@ -1005,10 +1035,10 @@ re/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/share/texmf-dist/f
 onts/type1/public/cm-super/sftt0800.pfb></usr/share/texmf-dist/fonts/type1/publ
 ic/cm-super/sftt0900.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sft
 t1000.pfb>
-Output written on main.pdf (14 pages, 2305632 bytes).
+Output written on main.pdf (18 pages, 2614369 bytes).
 PDF statistics:
- 310 PDF objects out of 1000 (max. 8388607)
- 264 compressed objects within 3 object streams
- 65 named destinations out of 1000 (max. 500000)
- 40684 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 340 PDF objects out of 1000 (max. 8388607)
+ 281 compressed objects within 3 object streams
+ 71 named destinations out of 1000 (max. 500000)
+ 40724 words of extra memory for PDF output out of 42996 (max. 10000000)
 

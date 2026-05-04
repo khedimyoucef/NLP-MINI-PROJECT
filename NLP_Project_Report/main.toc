@@ -13,14 +13,14 @@
 \contentsline {section}{\numberline {5}Training Methodology}{9}{section.5}%
 \contentsline {subsection}{\numberline {5.1}Configuration and Hardware}{9}{subsection.5.1}%
 \contentsline {subsection}{\numberline {5.2}Overcoming Memory Constraints}{9}{subsection.5.2}%
-\contentsline {section}{\numberline {6}Model Export and Deployment}{10}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Merging the Adapters}{10}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}GGUF Quantization via llama.cpp}{10}{subsection.6.2}%
-\contentsline {section}{\numberline {7}Evaluation and Results}{11}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Qualitative Examples}{11}{subsection.7.1}%
-\contentsline {section}{\numberline {8}Discussion and Limitations}{12}{section.8}%
-\contentsline {section}{\numberline {9}Technologies Used}{13}{section.9}%
-\contentsline {subsection}{\numberline {9.1}PyTorch \& Transformers}{13}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}PEFT \& BitsAndBytes}{13}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}llama.cpp}{13}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Kaggle}{13}{subsection.9.4}%
+\contentsline {section}{\numberline {6}Model Export and Deployment}{11}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Merging the Adapters}{11}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}GGUF Quantization via llama.cpp}{11}{subsection.6.2}%
+\contentsline {section}{\numberline {7}Evaluation and Results}{15}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Qualitative Examples}{15}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Discussion and Limitations}{16}{section.8}%
+\contentsline {section}{\numberline {9}Technologies Used}{17}{section.9}%
+\contentsline {subsection}{\numberline {9.1}PyTorch \& Transformers}{17}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}PEFT \& BitsAndBytes}{17}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}llama.cpp}{17}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Kaggle}{17}{subsection.9.4}%

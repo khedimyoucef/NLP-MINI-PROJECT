@@ -113,17 +113,71 @@ async def generate(req: GenerateRequest):
     return StreamingResponse(generate_stream(req, model_name), media_type="text/plain")
 
 
-def build_prompt(theme: str, age_group: str, model_name: str) -> str:
+def build_prompt(theme: str, age_group: str, model_name: str, max_new_tokens: Optional[int] = None) -> str:
     prefix = AGE_PREFIXES.get(age_group, f"Level: {age_group}")
     clean_theme = " ".join(theme.split())
-    if model_name.startswith("gpt2"):
-        return (
-            f"{prefix}\n"
-            f"Write a clear children's story for {age_group} readers about {clean_theme}. "
-            "Use complete sentences with a beginning, middle, and ending.\n"
-            "Story:\n"
+
+    # Strip common redundant prompt verb prefixes to yield cleaner themes
+    lower_theme = clean_theme.lower()
+    for verb_prefix in [
+        "write a children's story about a ",
+        "write a children's story about an ",
+        "write a children's story about ",
+        "write a children story about a ",
+        "write a children story about an ",
+        "write a children story about ",
+        "write a story about a ",
+        "write a story about an ",
+        "write a story about ",
+        "write about a ",
+        "write about an ",
+        "write about ",
+        "a story about a ",
+        "a story about an ",
+        "a story about ",
+        "story about a ",
+        "story about an ",
+        "story about ",
+    ]:
+        if lower_theme.startswith(verb_prefix):
+            clean_theme = clean_theme[len(verb_prefix):]
+            break
+
+    if "gpt2" in model_name:
+        # Clean articles at the beginning of the theme to avoid double articles
+        clean_theme_lower = clean_theme.lower()
+        if clean_theme_lower.startswith("a "):
+            clean_theme = clean_theme[2:]
+        elif clean_theme_lower.startswith("an "):
+            clean_theme = clean_theme[3:]
+        elif clean_theme_lower.startswith("the "):
+            clean_theme = clean_theme[4:]
+
+        first_char = clean_theme[0].lower() if clean_theme else ""
+        article = "an" if first_char in "aeiou" else "a"
+        return f"{prefix}\nOnce upon a time, there lived {article} {clean_theme}"
+    
+    # Optional prompt-level length pacing instruction for Gemma models
+    length_constraint = ""
+    if max_new_tokens is not None:
+        approx_words = int(max_new_tokens * 0.75)
+        length_constraint = (
+            f" Please pace the story carefully so that the entire narrative is fully complete, "
+            f"has a proper resolution and satisfying ending, and concludes entirely within a maximum "
+            f"of approximately {max_new_tokens} tokens (about {approx_words} words). "
+            f"Do not write beyond this length, and under no circumstances should the story cut off in the middle of a sentence or thought."
         )
-    return f"{prefix} {clean_theme}"
+
+    # System-level guardrail instructions for instruction-tuned Gemma models
+    system_instruction = (
+        "You are a children's story assistant. Reject any coding, technical query, "
+        "or any other request that is not related to generating children stories. "
+        "If the user asks for code, technical explanations, or non-story content, "
+        "politely refuse and state that you can only write children's stories."
+        f"{length_constraint}"
+    )
+    return f"{system_instruction}\n\nUser Prompt: {prefix} {clean_theme}"
+
 
 
 def resolve_max_new_tokens(requested: Optional[int]) -> int:
@@ -133,16 +187,13 @@ def resolve_max_new_tokens(requested: Optional[int]) -> int:
 
 
 def generation_kwargs_for(model_name: str, max_new_tokens: int) -> dict:
-    if model_name.startswith("gpt2"):
+    if "gpt2" in model_name:
         return {
             "max_new_tokens": max_new_tokens,
             "do_sample": True,
-            "temperature": 0.8,
-            "top_p": 0.92,
+            "temperature": 0.7,
+            "top_p": 0.9,
             "top_k": 50,
-            "repetition_penalty": 1.2,
-            "no_repeat_ngram_size": 3,
-            "renormalize_logits": True,
             "pad_token_id": tokenizer.eos_token_id,
             "eos_token_id": tokenizer.eos_token_id,
             "use_cache": True,
@@ -163,8 +214,8 @@ def generation_kwargs_for(model_name: str, max_new_tokens: int) -> dict:
 
 
 def generate_stream(req: GenerateRequest, model_name: str):
-    prompt = build_prompt(req.theme, req.age_group, model_name)
     max_new_tokens = resolve_max_new_tokens(req.max_new_tokens)
+    prompt = build_prompt(req.theme, req.age_group, model_name, max_new_tokens)
 
     if tokenizer == "llama_cpp":
         stream = model.create_chat_completion(
@@ -207,6 +258,11 @@ def generate_stream(req: GenerateRequest, model_name: str):
     worker = Thread(target=run_generation, daemon=True)
     worker.start()
 
+    if "gpt2" in model_name:
+        parts = prompt.strip().split("\n")
+        starter_line = parts[-1]
+        yield starter_line
+
     for chunk in streamer:
         if chunk:
             yield chunk
@@ -236,6 +292,11 @@ async def activate_model(model_name: str):
 
         if model is not None:
             try:
+                if tokenizer == "llama_cpp" and hasattr(model, "close"):
+                    try:
+                        model.close()
+                    except Exception as ce:
+                        print(f"Warning during llama_cpp model close: {ce}")
                 del model
                 del tokenizer
                 if base_device == "cuda":

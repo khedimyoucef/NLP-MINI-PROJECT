@@ -159,7 +159,7 @@
         white-space: pre-wrap;
         font-size: 1rem;
         line-height: 1.6;
-        color: #222225;
+        color: var(--ink);
       }
 
       .spark {
@@ -186,9 +186,93 @@
       .hero { animation-delay: 0.05s; }
       .card:first-of-type { animation-delay: 0.15s; }
       .card:last-of-type { animation-delay: 0.25s; }
+
+      /* --- Premium Dark Mode System --- */
+      body.dark-mode {
+        --bg: #121214;
+        --ink: #f0edf4;
+        --muted: #a0a0ad;
+        --accent: #3b9a84;
+        --accent-2: #e98d5c;
+        --card: #1c1c1f;
+        --border: #323238;
+        --shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        background: radial-gradient(circle at top left, #1a221f 0%, var(--bg) 40%, #0e0e10 100%);
+      }
+
+      body.dark-mode .badge {
+        background: #202b26;
+      }
+
+      body.dark-mode input,
+      body.dark-mode select,
+      body.dark-mode textarea {
+        background: #18181b;
+        color: var(--ink);
+      }
+
+      body.dark-mode button.secondary {
+        background: #252528;
+        color: var(--ink);
+      }
+
+      body.dark-mode button.secondary:hover:not(:disabled) {
+        background: #2e2e33;
+      }
+
+
+
+      .theme-toggle {
+        position: fixed;
+        top: 24px;
+        right: 24px;
+        z-index: 1000;
+        width: 44px;
+        height: 44px;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        background: var(--card);
+        border: 1px solid var(--border);
+        color: var(--ink);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+        cursor: pointer;
+        transition: transform 0.2s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.2s ease;
+      }
+
+      .theme-toggle:hover {
+        transform: scale(1.05);
+        background: var(--card);
+        box-shadow: var(--shadow);
+      }
+
+      /* Toggle icon display states */
+      .theme-toggle .sun-icon {
+        display: none;
+      }
+      .theme-toggle .moon-icon {
+        display: block;
+      }
+
+      body.dark-mode .theme-toggle .sun-icon {
+        display: block;
+      }
+      body.dark-mode .theme-toggle .moon-icon {
+        display: none;
+      }
     </style>
   </head>
   <body>
+    <!-- Theme Toggle Button -->
+    <button id="themeToggle" class="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+      <!-- Sun Icon (visible in dark mode) -->
+      <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+      <!-- Moon Icon (visible in light mode) -->
+      <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+    </button>
+
     <div class="page">
       <div class="hero">
         <span class="badge">CPU-friendly demo</span>
@@ -228,9 +312,7 @@
                 <input id="max_tokens" type="number" value="300" min="50" max="800" />
               </label>
             </div>
-            <label style="display: flex; flex-direction: row; align-items: center; gap: 8px; font-weight: normal; font-size: 0.95rem; margin-bottom: 8px; cursor: pointer;">
-              <input id="show_thinking" type="checkbox" checked style="width: auto; transform: scale(1.2);" /> Show Model Thinking Process
-            </label>
+
             <div class="controls">
               <button id="submitBtn" type="submit">Generate story</button>
               <button id="stopBtn" type="button" class="secondary" disabled>Stop generation</button>
@@ -240,7 +322,6 @@
 
         <div class="card">
           <h3>Story</h3>
-          <div id="think-out" class="output" style="display: none; background: #f8faee; border-left: 4px solid var(--accent); padding: 16px; margin-bottom: 16px; font-style: italic; color: #505540; font-size: 0.9rem; border-radius: 4px; min-height: auto;"></div>
           <div id="out" class="output">Your story will appear here.</div>
         </div>
       </div>
@@ -385,43 +466,12 @@
           const decoder = new TextDecoder();
           let buffer = '';
           out.textContent = '';
-          const thinkOut = document.getElementById('think-out');
-          thinkOut.style.display = 'none';
-          thinkOut.textContent = '';
-          const showThinking = document.getElementById('show_thinking').checked;
 
           while (true) {
             const {done, value} = await reader.read();
             if (done) break;
             buffer += decoder.decode(value, {stream: true});
-            
-            let displayHtml = '';
-            let thinkHtml = '';
-            
-            let currentStr = buffer;
-            let pStart = currentStr.indexOf('<think>');
-            while (pStart !== -1) {
-              displayHtml += currentStr.substring(0, pStart);
-              let pEnd = currentStr.indexOf('</think>', pStart + 7);
-              if (pEnd !== -1) {
-                thinkHtml += currentStr.substring(pStart + 7, pEnd) + '\n\n';
-                currentStr = currentStr.substring(pEnd + 8);
-              } else {
-                thinkHtml += currentStr.substring(pStart + 7);
-                currentStr = '';
-                break;
-              }
-              pStart = currentStr.indexOf('<think>');
-            }
-            displayHtml += currentStr;
-            
-            out.textContent = displayHtml;
-            if (thinkHtml.trim() && document.getElementById('show_thinking').checked) {
-              thinkOut.style.display = 'block';
-              thinkOut.textContent = thinkHtml.trim();
-            } else {
-              thinkOut.style.display = 'none';
-            }
+            out.textContent = buffer;
           }
         } catch (err) {
           if (err && err.name === 'AbortError') {
@@ -433,6 +483,18 @@
           activeAbortController = null;
           setGenerationState(false);
         }
+      });
+
+      // Dark Mode Toggle Logic
+      const themeToggle = document.getElementById('themeToggle');
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.body.classList.add('dark-mode');
+      }
+      themeToggle.addEventListener('click', () => {
+        document.body.classList.toggle('dark-mode');
+        const isDark = document.body.classList.contains('dark-mode');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
       });
     </script>
   </body>
